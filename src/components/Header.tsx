@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
 const Header = () => {
@@ -6,12 +7,13 @@ const Header = () => {
 
   return (
     <nav className="fixed z-1 w-full flex py-4 bg-zinc-900 text-white justify-between items-center px-8 px-5 ">
-      <button
+      <Link
         // onClick={() => scrollToSection(0)}
+        href="/"
         className="font-bold text-2xl cursor-pointer"
       >
         OurDesign
-      </button>
+      </Link>
       <div
         className="block md:hidden text-2xl cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
