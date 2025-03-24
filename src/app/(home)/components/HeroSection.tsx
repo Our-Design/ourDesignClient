@@ -15,10 +15,10 @@ const HeroSection = () => {
   ];
 
   return (
-    <main className="pt-32 pb-20 px-8">
-      <div className="flex justify-between items-center gap-10">
+    <main className="lg:pt-32 pt-24 pb-20 px-8">
+      <div className="flex lg:flex-row flex-col lg:justify-between items-center lg:gap-10 gap-20">
         <div className="space-y-6">
-          <h1 className="font-bold text-6xl">
+          <h1 className="font-bold lg:text-6xl text-5xl">
             Connect with Quality{" "}
             <span className="text-primary">Our Design</span> Leads
           </h1>
@@ -27,18 +27,18 @@ const HeroSection = () => {
             Design services. Grow your business with high-intent leads delivered
             directly to you.
           </p>
-          <div className="flex items-center gap-4">
-            <button className="py-4 text-xl px-6 font-bold rounded-md bg-primary cursor-pointer">
+          <div className="flex items-center gap-4 lg:text-xl text-base">
+            <button className="py-4 lg:px-6 px-3 font-bold rounded-md bg-primary cursor-pointer">
               Start Getting Leads
             </button>
-            <button className="py-4 text-xl px-6 font-bold rounded-md bg-zinc-700 cursor-pointer">
+            <button className="py-4 lg:px-6 px-3 font-bold rounded-md bg-zinc-700 cursor-pointer">
               How It Works
             </button>
           </div>
         </div>
 
-        <div className="w-[70%] flex flex-col items-center space-y-5 bg-zinc-800 rounded-xl p-8">
-          <span className="bg-primary rounded-3xl p-2 px-6 text-lg">
+        <div className="lg:w-[70%] w-full shadow-lg shadow-blue-500/50 border border-blue-600/50 flex flex-col items-center space-y-5 bg-zinc-800 rounded-xl p-8">
+          <span className="bg-primary text-center rounded-3xl p-2 px-6 lg:text-lg text-base">
             Average Lead Quality Score: 8.5/10
           </span>
           <div className="space-y-6 w-full">
@@ -49,7 +49,7 @@ const HeroSection = () => {
                   className="flex items-center gap-3 p-4 rounded-md bg-zinc-600"
                 >
                   <div className="w-2 h-2 rounded-full bg-green-400" />
-                  <span className="text-xl">{feature}</span>
+                  <span className="lg:text-xl text-base">{feature}</span>
                 </div>
               );
             })}
@@ -57,15 +57,17 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="text-zinc-400 flex justify-center gap-6 items-center pt-16">
+      <div className="text-zinc-400 flex lg:flex-row flex-col justify-center gap-6 items-center pt-16">
         <p>Trusted by leading interior design firms:</p>
-        {firms.map((f, index) => {
-          return (
-            <span key={index} className="text-2xl font-semibold">
-              {f}
-            </span>
-          );
-        })}
+        <div className="flex lg:gap-6 gap-4">
+          {firms.map((f, index) => {
+            return (
+              <span key={index} className="lg:text-2xl text-lg font-semibold">
+                {f}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </main>
   );

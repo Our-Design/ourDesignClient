@@ -25,18 +25,18 @@ const HowItWorks = () => {
 
   return (
     <div className="bg-white text-black flex flex-col items-center py-20 space-y-6 px-8">
-      <h2 className="text-5xl font-bold">How It Works</h2>
-      <p className="text-xl mb-16">
+      <h2 className="text-5xl font-bold text-center">How It Works</h2>
+      <p className="text-xl mb-16 text-center">
         Our streamlined process makes it easy to receive qualified interior
         design leads and grow your business
       </p>
 
-      <div className="flex gap-10 items-center mb-20">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-10 mb-20">
         {steps.map((step, i) => {
           return (
             <div
               key={i}
-              className="flex flex-col items-center space-y-8 bg-gray-100 p-10 rounded-md"
+              className="flex flex-col text-center items-center space-y-8 bg-gray-100 p-10 rounded-md"
             >
               <div className="text-3xl font-bold w-20 h-20 flex justify-center items-center bg-primary text-white rounded-full">
                 {i + 1}
@@ -49,13 +49,18 @@ const HowItWorks = () => {
         })}
       </div>
 
-      <div className="bg-black px-20 py-12 rounded-2xl text-white flex justify-between items-center w-full">
+      <div className="bg-black lg:px-20 px-8 py-12 rounded-2xl text-white flex lg:flex-row flex-col lg:justify-between gap-16 items-center w-full">
         <div>
-          <h3 className="text-5xl font-bold mb-8">Lead Quality Guarantee</h3>
-          <div className="space-y-6">
+          <h3 className="lg:text-5xl text-4xl font-bold mb-8">
+            Lead Quality Guarantee
+          </h3>
+          <div className="space-y-6 flex flex-col lg:items-start items-center">
             {checks.map((check, index) => {
               return (
-                <div key={index} className="flex items-center gap-3 text-xl">
+                <div
+                  key={index}
+                  className="flex items-center gap-3 lg:text-xl text-lg"
+                >
                   <IoMdCheckmark className="text-green-400" />
                   <span>{check}</span>
                 </div>

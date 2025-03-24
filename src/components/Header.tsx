@@ -6,7 +6,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed z-1 w-full flex py-4 bg-zinc-900 text-white justify-between items-center px-8 px-5 ">
+    <nav className="fixed z-1 w-full flex py-4 bg-zinc-900 text-white justify-between items-center px-8">
       <Link
         // onClick={() => scrollToSection(0)}
         href="/"
