@@ -15,7 +15,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <main className="lg:pt-32 pt-24 pb-20 px-8">
+    <main className="lg:pt-32 pt-24 pb-20 px-8 bg-black text-white">
       <div className="flex lg:flex-row flex-col lg:justify-between items-center lg:gap-10 gap-20">
         <div className="space-y-6">
           <h1 className="font-bold lg:text-6xl text-5xl">

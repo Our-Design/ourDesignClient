@@ -9,7 +9,7 @@ const Schedule = () => {
   ];
 
   return (
-    <main className="py-24 px-8">
+    <main className="py-24 px-8 text-white bg-black">
       <div className="bg-gradient-to-br px-8 from-blue-700 to-blue-800 space-y-10 lg:px-32 py-20 rounded-3xl flex flex-col items-center text-center">
         <h2 className="lg:text-6xl text-5xl font-bold">
           Start Growing Your Interior Design Business Today

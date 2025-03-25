@@ -40,7 +40,7 @@ const Features = () => {
   ];
 
   return (
-    <main className="flex flex-col items-center px-8 py-24">
+    <main className="flex flex-col items-center px-8 py-24 bg-black text-white">
       <h2 className="text-5xl font-bold mb-4 text-center">
         Why Choose Our Lead Service?
       </h2>

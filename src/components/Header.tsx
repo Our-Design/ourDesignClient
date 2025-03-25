@@ -28,7 +28,7 @@ const Header = () => {
         <span className="text-primary hover:bg-blue-800 cursor-pointer font-medium hover:text-white p-2 px-6 rounded-3xl">
           Get Started
         </span>
-        <button className="p-2 px-4 font-medium bg-white cursor-pointer hover:bg-gray-200 text-black rounded-md">
+        <button className="p-2 px-4 mb-8 lg:mb-0 font-medium bg-white cursor-pointer hover:bg-gray-200 text-black rounded-md">
           Download App
         </button>
       </div>
