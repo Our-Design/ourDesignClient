@@ -9,12 +9,12 @@ const Schedule = () => {
   ];
 
   return (
-    <main className="py-24 px-8 text-white bg-black">
-      <div className="bg-gradient-to-br px-8 from-blue-700 to-blue-800 space-y-10 lg:px-32 py-20 rounded-3xl flex flex-col items-center text-center">
-        <h2 className="lg:text-6xl text-5xl font-bold">
+    <main className="pb-24 lg:pt-24 px-8">
+      <div className="px-8 text-primary bg-soft space-y-10 lg:px-32 py-20 rounded-3xl flex flex-col items-center text-center">
+        <h2 className="lg:text-6xl text-4xl font-bold">
           Start Growing Your Interior Design Business Today
         </h2>
-        <p className="text-2xl">
+        <p className="lg:text-2xl text-xl">
           Join hundreds of successful interior designers who are scaling their
           business with qualified leads
         </p>
@@ -22,7 +22,7 @@ const Schedule = () => {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="flex gap-2 font-medium bg-white/20 px-6 py-2 rounded-xl"
+              className="flex items-center gap-2 font-medium bg-white/50 px-6 py-2 rounded-xl"
             >
               <IoMdCheckmark />
               <span>{feature}</span>
@@ -30,10 +30,10 @@ const Schedule = () => {
           ))}
         </div>
         <div className="flex flex-wrap justify-center gap-4 lg:text-xl text-base">
-          <button className="bg-white text-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl">
+          <button className="bg-white shadow-lg hover:shadow-xl cursor-pointer text-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl">
             Get Started Now
           </button>
-          <button className="border-2 border-white font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl">
+          <button className="text-white shadow-lg hover:shadow-xl cursor-pointer bg-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl">
             Schedule Demo
           </button>
         </div>

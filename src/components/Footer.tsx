@@ -27,10 +27,10 @@ const Footer = () => {
   ];
 
   return (
-    <main className="text-gray-400 bg-zinc-900 px-8">
+    <main className="text-gray-400 bg-primary px-8">
       <div className="flex lg:flex-row flex-col lg:justify-around gap-10 py-20">
         <div className="space-y-6">
-          <h3 className="text-3xl font-bold text-white">OurDesign</h3>
+          <h3 className="text-3xl font-bold text-background">OurDesign</h3>
           <p className="text-xl">
             Connecting interior designers with quality leads to grow their
             business.
@@ -52,14 +52,16 @@ const Footer = () => {
         </div>
 
         <div>
-          <h4 className="text-2xl text-white font-bold mb-6">Quick Links</h4>
+          <h4 className="text-2xl font-bold mb-6 text-background">
+            Quick Links
+          </h4>
           <div className="flex flex-col gap-3">
             {quickLinks.map((link) => {
               return (
                 <Link
                   key={link.label}
                   href={link.path}
-                  className="hover:text-white"
+                  className="hover:text-background"
                 >
                   {link.label}
                 </Link>
@@ -68,7 +70,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-8 border-t border-gray-600 text-center">
+      <div className="py-8 border-t border-gray-300 text-center">
         <p>© {new Date().getFullYear()} OurDesign. All rights reserved.</p>
       </div>
     </main>

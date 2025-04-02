@@ -40,11 +40,11 @@ const Features = () => {
   ];
 
   return (
-    <main className="flex flex-col items-center px-8 py-24 bg-black text-white">
-      <h2 className="text-5xl font-bold mb-4 text-center">
+    <main className="flex flex-col items-center px-8 py-24 text-accent">
+      <h2 className="lg:text-4xl text-3xl text-primary mb-4 text-center">
         Why Choose Our Lead Service?
       </h2>
-      <p className="text-xl text-center">
+      <p className="lg:text-xl text-lg text-center">
         Discover how our premium lead generation service can transform your
         interior design business
       </p>
@@ -53,18 +53,20 @@ const Features = () => {
         {features.map((feature, index) => (
           <div
             key={index}
-            className="flex hover:scale-105 flex-col items-start gap-5 mb-6 bg-zinc-800 p-6 rounded-2xl"
+            className="flex hover:scale-105 flex-col items-start gap-5 mb-6 hover:shadow-2xl border border-gray-100 shadow-lg p-6"
           >
-            <div className="text-blue-400 text-2xl bg-blue-800/50 p-5 rounded-2xl">
+            <div className="text-primary text-2xl bg-[#011640]/20 p-5 rounded-2xl">
               {feature.icon}
             </div>
-            <h3 className="text-2xl font-semibold">{feature.title}</h3>
+            <h3 className="text-2xl text-primary font-semibold">
+              {feature.title}
+            </h3>
             <p className="text-lg">{feature.desc}</p>
           </div>
         ))}
       </div>
 
-      <button className="bg-primary font-bold text-xl px-6 py-3 rounded-xl">
+      <button className="bg-soft text-primary font-bold lg:text-xl text-lg px-6 py-3 rounded-lg cursor-pointer shadow-lg hover:shadow-xl hover:scale-101">
         Start Receiving Leads Today
       </button>
     </main>

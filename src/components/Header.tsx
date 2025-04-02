@@ -2,15 +2,18 @@
 import Link from "next/link";
 import { useState } from "react";
 import { IoMenu } from "react-icons/io5";
+import DesignIdeasNavigation from "./DesignIdeasNavigation";
+import { CgProfile } from "react-icons/cg";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed z-1 w-full flex py-4 bg-zinc-900 text-white justify-between items-center px-8">
+    <nav className="fixed z-1 w-full backdrop-blur supports-[backdrop-filter]:bg-secondary/40 flex py-4 justify-between items-center px-8">
       <Link
         // onClick={() => scrollToSection(0)}
         href="/"
-        className="font-bold text-2xl cursor-pointer"
+        className="font-bold text-3xl cursor-pointer"
       >
         OurDesign
       </Link>
@@ -25,12 +28,26 @@ const Header = () => {
           isOpen ? "flex flex-col bg-zinc-900 " : "hidden"
         }`}
       >
-        <span className="text-primary hover:bg-blue-800 cursor-pointer font-medium hover:text-white p-2 px-6 rounded-3xl">
+        {/* <span className="text-primary hover:bg-blue-800 cursor-pointer font-medium hover:text-white p-2 px-6 rounded-3xl">
           Get Started
         </span>
         <button className="p-2 px-4 mb-8 lg:mb-0 font-medium bg-white cursor-pointer hover:bg-gray-200 text-black rounded-md">
           Download App
-        </button>
+        </button> */}
+        <DesignIdeasNavigation />
+        <Link href="/blogs">
+          <button className="cursor-pointer hover:font-semibold text-primary">
+            Blogs
+          </button>
+        </Link>
+        <Link href="/login">
+          <CgProfile className="text-2xl cursor-pointer" />
+        </Link>
+        <Link href="/enquire">
+          <button className="bg-primary text-white shadow-lg p-2 px-4 font-medium rounded-lg cursor-pointer hover:bg-black">
+            Enquire Now
+          </button>
+        </Link>
       </div>
     </nav>
   );
