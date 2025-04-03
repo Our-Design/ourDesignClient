@@ -15,14 +15,14 @@ const HeroSection = () => {
   ];
 
   return (
-    <main className="lg:pt-32 pt-24 pb-20 px-8 bg-secondary bg-[url('https://library.elementor.com/real-estate-flexbox/wp-content/uploads/sites/295/2020/05/Hero.png')] bg-cover max-lg:bg-center">
+    <main className="lg:pt-32 pt-24 lg:pb-28 pb-36 px-8 bg-secondary relative bg-[url('https://library.elementor.com/real-estate-flexbox/wp-content/uploads/sites/295/2020/05/Hero.png')] bg-cover max-lg:bg-center">
       <div className="flex lg:flex-row flex-col lg:justify-between items-center lg:gap-10 gap-20">
         <div className="space-y-6 lg:w-1/2">
           <h1 className="font-bold uppercase lg:text-6xl text-5xl">
             Connect with Quality{" "}
             <span className="text-primary">Our Design</span> Leads
           </h1>
-          <p className="text-xl text-accent">
+          <p className="text-xl lg:text-accent text-primary">
             Get exclusive access to pre-qualified clients actively seeking Our
             Design services. Grow your business with high-intent leads delivered
             directly to you.
@@ -57,12 +57,14 @@ const HeroSection = () => {
         </div> */}
       </div>
 
-      <div className="text-zinc-400 flex lg:flex-row flex-col justify-center gap-6 items-center pt-16">
-        <p>Trusted by leading interior design firms:</p>
+      <div className="text-zinc-400 absolute bottom-0 left-1/2 lg:w-[80%] w-[90%] -translate-x-1/2 translate-y-[50%] bg-white shadow-lg border-gray-200 border flex lg:flex-row flex-col justify-center gap-6 items-center lg:p-12 p-8">
+        <p className="text-center max-lg:text-sm">
+          Trusted by leading interior design firms:
+        </p>
         <div className="flex lg:gap-6 gap-4">
           {firms.map((f, index) => {
             return (
-              <span key={index} className="lg:text-2xl text-lg font-semibold">
+              <span key={index} className="lg:text-2xl text-base font-semibold">
                 {f}
               </span>
             );

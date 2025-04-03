@@ -24,7 +24,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center py-20 space-y-6 px-8 text-accent">
+    <div className="flex flex-col items-center py-20 lg:pt-36 pt-44 space-y-6 px-8 text-accent">
       <h2 className="text-4xl text-center text-primary">How It Works</h2>
       <p className="lg:text-xl text-base mb-24 text-center lg:w-[40%]">
         Our streamlined process makes it easy to receive qualified interior
