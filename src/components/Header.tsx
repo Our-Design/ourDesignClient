@@ -35,15 +35,15 @@ const Header = () => {
           Download App
         </button> */}
         <DesignIdeasNavigation setIsOpen={setIsOpen} />
-        <Link href="/blogs">
+        <Link href="/blogs" onClick={() => setIsOpen(false)}>
           <button className="cursor-pointer hover:font-semibold text-primary">
             Blogs
           </button>
         </Link>
-        <Link href="/login">
+        <Link href="/login" onClick={() => setIsOpen(false)}>
           <CgProfile className="text-2xl cursor-pointer" />
         </Link>
-        <Link href="/enquire">
+        <Link href="/enquire" onClick={() => setIsOpen(false)}>
           <button className="bg-primary text-white shadow-lg p-2 px-4 font-medium rounded-lg cursor-pointer hover:bg-black">
             Enquire Now
           </button>
