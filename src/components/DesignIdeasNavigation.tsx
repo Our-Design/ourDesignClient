@@ -2,7 +2,11 @@
 import React, { useState } from "react";
 import DesignIdeasModal from "./modals/DesignIdeasModal";
 
-const DesignIdeasNavigation = () => {
+interface DesignIdeasNavigationProps {
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+const DesignIdeasNavigation = ({ setIsOpen }: DesignIdeasNavigationProps) => {
   const [modalVisibility, setModalVisibility] = useState(false);
 
   return (
@@ -11,6 +15,7 @@ const DesignIdeasNavigation = () => {
         onMouseEnter={() => setModalVisibility(true)}
         onMouseLeave={() => setModalVisibility(false)}
         className="cursor-pointer hover:font-medium p-2"
+        onClick={() => setModalVisibility(!modalVisibility)}
       >
         Design Ideas
       </button>
@@ -18,9 +23,12 @@ const DesignIdeasNavigation = () => {
         <div
           onMouseEnter={() => setModalVisibility(true)}
           onMouseLeave={() => setModalVisibility(false)}
-          className="absolute top-10 -left-36 z-50"
+          className="absolute top-10 lg:-left-36 -left-28 z-50"
         >
-          <DesignIdeasModal />
+          <DesignIdeasModal
+            setModalVisibility={setModalVisibility}
+            setIsOpen={setIsOpen}
+          />
         </div>
       ) : null}
     </div>

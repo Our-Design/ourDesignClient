@@ -1,7 +1,15 @@
 import Link from "next/link";
 import React from "react";
 
-const DesignIdeasModal = () => {
+interface DesignIdeasModalProps {
+  setModalVisibility: (modalVisibility: boolean) => void;
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+const DesignIdeasModal = ({
+  setModalVisibility,
+  setIsOpen,
+}: DesignIdeasModalProps) => {
   const modalLinks1 = [
     {
       label: "Home Decor",
@@ -79,7 +87,11 @@ const DesignIdeasModal = () => {
             <Link
               href={`/design-ideas${link.path}`}
               key={link.label}
-              className="w-32 hover:text-primary hover:font-semibold"
+              className="lg:w-32 w-20 max-lg:text-xs hover:text-primary hover:font-semibold"
+              onClick={() => {
+                setIsOpen(false);
+                setModalVisibility(false);
+              }}
             >
               {link.label}
             </Link>
@@ -93,7 +105,11 @@ const DesignIdeasModal = () => {
             <Link
               href={`/design-ideas${link.path}`}
               key={link.label}
-              className="w-32 hover:text-primary hover:font-semibold"
+              className="lg:w-32 w-20 max-lg:text-xs hover:text-primary hover:font-semibold"
+              onClick={() => {
+                setIsOpen(false);
+                setModalVisibility(false);
+              }}
             >
               {link.label}
             </Link>
@@ -107,7 +123,11 @@ const DesignIdeasModal = () => {
             <Link
               href={`/design-ideas${link.path}`}
               key={link.label}
-              className="w-32 hover:text-primary hover:font-semibold"
+              className="lg:w-32 w-20 max-lg:text-xs hover:text-primary hover:font-semibold"
+              onClick={() => {
+                setIsOpen(false);
+                setModalVisibility(false);
+              }}
             >
               {link.label}
             </Link>

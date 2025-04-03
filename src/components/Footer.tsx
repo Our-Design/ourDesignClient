@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+// import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const quickLinks = [
@@ -8,18 +8,18 @@ const Footer = () => {
       path: "privacy-policy",
       label: "Privacy Policy",
     },
-    {
-      path: "shopping-delivery",
-      label: "Shopping & Delivery",
-    },
+    // {
+    //   path: "shopping-delivery",
+    //   label: "Shopping & Delivery",
+    // },
     {
       path: "terms-conditions",
       label: "Terms & Conditions",
     },
-    {
-      path: "cancellation-refund",
-      label: "Cancellation & Refund",
-    },
+    // {
+    //   path: "cancellation-refund",
+    //   label: "Cancellation & Refund",
+    // },
     {
       path: "contact-us",
       label: "Contact Us",
@@ -35,7 +35,7 @@ const Footer = () => {
             Connecting interior designers with quality leads to grow their
             business.
           </p>
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <a href="#">
               <FaFacebook size={24} />
             </a>
@@ -48,7 +48,7 @@ const Footer = () => {
             <a href="#">
               <FaInstagram size={24} />
             </a>
-          </div>
+          </div> */}
         </div>
 
         <div>

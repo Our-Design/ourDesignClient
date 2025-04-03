@@ -25,7 +25,7 @@ const Header = () => {
       </div>
       <div
         className={`absolute top-15 left-0 px-5 md:static md:max-w-[620px] w-full md:flex md:flex-row justify-end items-center gap-6 ${
-          isOpen ? "flex flex-col bg-zinc-900 " : "hidden"
+          isOpen ? "flex flex-col backdrop-blur bg-white py-6" : "hidden"
         }`}
       >
         {/* <span className="text-primary hover:bg-blue-800 cursor-pointer font-medium hover:text-white p-2 px-6 rounded-3xl">
@@ -34,7 +34,7 @@ const Header = () => {
         <button className="p-2 px-4 mb-8 lg:mb-0 font-medium bg-white cursor-pointer hover:bg-gray-200 text-black rounded-md">
           Download App
         </button> */}
-        <DesignIdeasNavigation />
+        <DesignIdeasNavigation setIsOpen={setIsOpen} />
         <Link href="/blogs">
           <button className="cursor-pointer hover:font-semibold text-primary">
             Blogs
