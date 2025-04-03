@@ -1,75 +1,17 @@
 import Image from "next/image";
 import React from "react";
 
-const DesignIdeasComponent = ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
-  const dummyData = [
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-    {
-      imgSrc:
-        "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
-      title: "Traditional Indian Lotus Floral Motif Entice Painting",
-    },
-  ];
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+const DesignIdeasComponent = async ({ params }: PageProps) => {
+  const { slug } = await params;
+  const dummyData = Array(12).fill({
+    imgSrc:
+      "https://artstreet.in/cdn/shop/files/916oRo1jirL_700x700.jpg?v=1732259391",
+    title: "Traditional Indian Lotus Floral Motif Entice Painting",
+  });
 
   return (
     <main className="px-8 bg-secondary py-10 pb-20">
