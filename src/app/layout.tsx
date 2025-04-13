@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Poppins } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,7 +40,9 @@ export default function RootLayout({
         <Header />
         <div className="pt-[71.97px] flex-grow">{children}</div>
         <Footer />
+        <ToastContainer />
       </body>
+      <GoogleAnalytics gaId="G-P8RHE8QT3G" />
     </html>
   );
 }

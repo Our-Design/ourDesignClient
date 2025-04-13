@@ -1,38 +1,10 @@
-"use client";
-import PasswordInput from "@/components/PasswordInput";
-import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
+import LoginForm from "./components/LoginForm";
 
 const LoginPage = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
   return (
     <div className="px-8 py-24 bg-[url('https://interiosplash.com/wp-content/uploads/2024/09/12-optimized.webp')] flex justify-center items-center">
-      <div className="bg-white shadow-xl p-10 lg:px-20 px-8 space-y-8 flex flex-col">
-        <h2 className="text-xl font-bold">Welcome back!</h2>
-        <input
-          type="text"
-          placeholder="Mobile No."
-          className="border outline-none p-2 rounded"
-        />
-        <PasswordInput isVisible={isVisible} setIsVisible={setIsVisible} />
-        <div className="flex flex-col gap-1">
-          <span className="text-xs cursor-pointer hover:font-bold">
-            Forgot Password?
-          </span>
-          <button className="px-8 py-2 bg-primary rounded shadow-lg hover:scale-101 cursor-pointer hover:shadow-xl text-white font-bold uppercase">
-            Log In
-          </button>
-        </div>
-        <div className="lg:text-sm text-xs">
-          Don&apos;t have an Account?{" "}
-          <Link href="/sign-up">
-            <span className="hover:font-bold font-semibold text-primary cursor-pointer">
-              Register
-            </span>
-          </Link>
-        </div>
-      </div>
+      <LoginForm />
     </div>
   );
 };

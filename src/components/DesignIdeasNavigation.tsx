@@ -14,7 +14,7 @@ const DesignIdeasNavigation = ({ setIsOpen }: DesignIdeasNavigationProps) => {
       <button
         onMouseEnter={() => setModalVisibility(true)}
         onMouseLeave={() => setModalVisibility(false)}
-        className="cursor-pointer hover:font-medium p-2"
+        className="cursor-pointer hover:font-semibold p-2"
         onClick={() => setModalVisibility(!modalVisibility)}
       >
         Design Ideas
