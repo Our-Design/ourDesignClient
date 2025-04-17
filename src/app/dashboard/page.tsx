@@ -11,7 +11,6 @@ const Dashboard = async () => {
 
   if (isAuthorized?.length) {
     leads = await fetchAllLeads();
-    console.log({ leads });
   }
 
   return (

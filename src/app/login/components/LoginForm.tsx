@@ -12,22 +12,35 @@ const LoginForm = () => {
   const [phone, setPhone] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errors, setErrors] = useState<{ phone?: string; password?: string }>(
+    {}
+  );
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    setIsLoading(true);
     e.preventDefault();
 
+    const newErrors: typeof errors = {};
+    if (!phone.trim()) newErrors.phone = "Mobile number is required.";
+    else if (!/^[0-9]{10}$/.test(phone))
+      newErrors.phone = "Enter a valid 10-digit mobile number.";
+
+    if (!password.trim()) newErrors.password = "Password is required.";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setIsLoading(true);
     const response = await loginUser({ phone, password });
     setIsLoading(false);
-    console.log(response);
 
     if (!response.success) {
       toast.error("Failed to log in!");
-      console.log(response.message); // Show error message
     } else {
       toast.success("Logged In Successfully!");
-      router.push("/dashboard"); // Redirect on success
+      router.push("/dashboard");
     }
   };
 
@@ -37,20 +50,35 @@ const LoginForm = () => {
       className="bg-white shadow-xl p-10 lg:px-20 px-8 space-y-8 flex flex-col"
     >
       <h2 className="text-xl font-bold">Welcome back!</h2>
-      <input
-        type="text"
-        placeholder="Mobile No."
-        className="border outline-none p-2 rounded"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        required
-      />
-      <PasswordInput
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-        state={password}
-        setter={setPassword}
-      />
+      <div>
+        <input
+          type="text"
+          placeholder="Mobile No."
+          className="border outline-none p-2 rounded w-full"
+          value={phone}
+          onChange={(e) => {
+            setPhone(e.target.value);
+            setErrors((prev) => ({ ...prev, phone: "" }));
+          }}
+        />
+        {errors.phone && (
+          <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+        )}
+      </div>
+      <div>
+        <PasswordInput
+          isVisible={isVisible}
+          setIsVisible={setIsVisible}
+          state={password}
+          setter={(val) => {
+            setPassword(val);
+            setErrors((prev) => ({ ...prev, password: "" }));
+          }}
+        />
+        {errors.password && (
+          <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+        )}
+      </div>
       <div className="flex flex-col gap-1">
         <span className="text-xs cursor-pointer hover:font-bold">
           Forgot Password?

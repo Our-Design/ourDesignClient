@@ -40,7 +40,7 @@ export default function RootLayout({
         <Header />
         <div className="pt-[71.97px] flex-grow">{children}</div>
         <Footer />
-        <ToastContainer />
+        <ToastContainer toastClassName="custom-toast" />
       </body>
       <GoogleAnalytics gaId="G-P8RHE8QT3G" />
     </html>

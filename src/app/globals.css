@@ -101,3 +101,19 @@ body {
     box-shadow: 0 4px 6px var(--shadow);
   }
 }
+
+/* Custom class for toast */
+.custom-toast {
+  @apply text-sm px-3 py-2 rounded-md;
+  /* Tailwind (optional) */
+  max-width: 90%;
+  margin: auto;
+  margin-top: 12px;
+}
+
+@media (max-width: 640px) {
+  .custom-toast {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}

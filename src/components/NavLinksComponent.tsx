@@ -18,7 +18,7 @@ const NavLinksComponent = ({ isAuthorized }: { isAuthorized: string }) => {
     setIsLoggingOut(true);
     await logout();
     setIsLoggingOut(false);
-    toast("Logged out successfully!");
+    toast.success("Logged out successfully!");
     router.push("/");
     setIsOpen(false);
   };
@@ -32,7 +32,7 @@ const NavLinksComponent = ({ isAuthorized }: { isAuthorized: string }) => {
         <IoMenu />
       </div>
       <div
-        className={`absolute top-15 left-0 px-5 md:static md:max-w-[620px] w-full md:flex md:flex-row justify-end items-center gap-6 ${
+        className={`absolute top-15 left-0 px-5 md:static w-full md:flex md:flex-row justify-end items-center gap-6 ${
           isOpen ? "flex flex-col backdrop-blur-2xl bg-white py-6" : "hidden"
         }`}
       >
@@ -43,6 +43,15 @@ const NavLinksComponent = ({ isAuthorized }: { isAuthorized: string }) => {
         >
           Dashboard
         </Link>
+        {isAuthorized?.length ? (
+          <Link
+            href="/my-leads"
+            className="hover:font-semibold"
+            onClick={() => setIsOpen(false)}
+          >
+            My Leads
+          </Link>
+        ) : null}
         <DesignIdeasNavigation setIsOpen={setIsOpen} />
         <Link href="/blogs" onClick={() => setIsOpen(false)}>
           <button className="cursor-pointer hover:font-semibold text-primary">

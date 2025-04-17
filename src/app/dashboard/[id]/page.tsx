@@ -46,7 +46,9 @@ const Lead = async ({ params }: LeadProps) => {
       </h2>
       <div className="flex items-center gap-1 my-4">
         <IoLocationSharp className="text-red-400" />
-        <span className="capitalize">{address}</span>
+        <span className="capitalize">
+          {address.city}, {address.state}
+        </span>
       </div>
       <div className="flex items-center gap-1 font-extrabold">
         <span>Budget:</span>
@@ -64,7 +66,11 @@ const Lead = async ({ params }: LeadProps) => {
         <span>Requirements: Design and Execution</span>
         <span>{description}</span>
         <span>Ready to meet: Yes</span>
-        <span>Street Address: {address}</span>
+        <span>
+          Street Address: {address.addressLine1},{" "}
+          {address?.addressLine2 && address?.addressLine2}, {address?.city},{" "}
+          {address?.state}, {address?.country}, {address.pinCode}.
+        </span>
       </div>
 
       <div className="space-y-2 my-4">

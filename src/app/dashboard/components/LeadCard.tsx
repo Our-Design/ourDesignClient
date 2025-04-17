@@ -22,7 +22,9 @@ const LeadCard = ({ leadDetails }: { leadDetails: Lead }) => {
         <span className="font-extrabold lg:text-lg">{propertyType}</span>
         <div className="flex items-center gap-1">
           <IoLocationSharp className="text-red-400" />
-          <span className="capitalize text-sm">{address}</span>
+          <span className="capitalize text-sm">
+            {address?.city}, {address?.state}
+          </span>
         </div>
       </div>
       <button
