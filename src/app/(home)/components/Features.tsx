@@ -4,6 +4,7 @@ import { SiTicktick } from "react-icons/si";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { RxLightningBolt } from "react-icons/rx";
 import { FaRegClipboard, FaScaleBalanced } from "react-icons/fa6";
+import Link from "next/link";
 
 const Features = () => {
   const features = [
@@ -66,9 +67,12 @@ const Features = () => {
         ))}
       </div>
 
-      <button className="bg-soft text-primary font-bold lg:text-xl text-lg px-6 py-3 rounded-lg cursor-pointer shadow-lg hover:shadow-xl hover:scale-101">
+      <Link
+        href="/dashboard"
+        className="bg-soft text-primary font-bold lg:text-xl text-lg px-6 py-3 rounded-lg cursor-pointer shadow-lg hover:shadow-xl hover:scale-101"
+      >
         Start Receiving Leads Today
-      </button>
+      </Link>
     </main>
   );
 };

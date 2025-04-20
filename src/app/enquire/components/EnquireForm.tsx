@@ -52,7 +52,6 @@ const EnquireForm = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    setLoading(true);
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -61,6 +60,7 @@ const EnquireForm = () => {
     }
 
     // Do your submission logic here
+    setLoading(true);
     const res = await createLead({ formData });
     setLoading(false);
     if (res.success) {

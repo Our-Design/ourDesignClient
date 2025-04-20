@@ -1,39 +1,43 @@
 "use server";
+
 import { cookies } from "next/headers";
 
-export const fetchMyLeads = async () => {
+export const createOrder = async ({
+  amount,
+  leadId,
+  designerId,
+}: {
+  amount: number;
+  leadId: string;
+  designerId: string;
+}) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URI}/leads/my-leads`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URI}/payments/create-order`,
       {
-        next: {
-          tags: ["leads"],
-        },
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${
             (await cookies()).get("accessToken")!.value
           }`,
         },
+        body: JSON.stringify({ amount, leadId, designerId }),
       }
     );
     const respData = await res.json();
-    // console.log({ myLeads: respData });
+    // console.log(respData);
     // if (!res.ok) {
     //   throw new Error(respData.errors[0].msg);
     // }
-    const data = respData;
-    return {
-      success: true,
-      data: data,
-      message: "Your Leads Fetched Successfully",
-    };
+    // add cookies to the application here
+
+    return respData;
   } catch (error) {
     return {
       success: false,
       message:
-        error instanceof Error ? error.message : "Failed to fetch Leads ",
+        error instanceof Error ? error.message : "Failed to create order!",
     };
   }
 };

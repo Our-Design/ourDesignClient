@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const HeroSection = () => {
@@ -28,12 +29,18 @@ const HeroSection = () => {
             directly to you.
           </p>
           <div className="flex items-center gap-4 lg:text-xl text-base">
-            <button className="lg:py-4 py-3 lg:px-6 px-3 font-bold text-white rounded-md bg-primary cursor-pointer">
+            <Link
+              href="/dashboard"
+              className="lg:py-4 shadow-lg py-3 lg:px-6 px-3 font-bold text-white rounded-md bg-primary cursor-pointer"
+            >
               Start Getting Leads
-            </button>
-            <button className="lg:py-4 py-3 lg:px-6 px-3 font-bold rounded-md bg-soft text-foreground cursor-pointer">
-              How It Works
-            </button>
+            </Link>
+            <Link
+              href="/enquire"
+              className="lg:py-4 shadow-lg py-3 lg:px-6 px-3 font-bold rounded-md bg-soft text-foreground cursor-pointer"
+            >
+              Need a designer?
+            </Link>
           </div>
         </div>
 

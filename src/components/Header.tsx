@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NavLinksComponent from "./NavLinksComponent";
 import { cookies } from "next/headers";
+import Image from "next/image";
 
 const Header = async () => {
   const isAuthorized = (await cookies()).get("accessToken")?.value;
@@ -10,9 +11,10 @@ const Header = async () => {
       <Link
         // onClick={() => scrollToSection(0)}
         href="/"
-        className="font-bold text-3xl cursor-pointer"
+        className="font-bold flex items-end gap-2 text-3xl cursor-pointer"
       >
-        OurDesign
+        <Image src="/ourDesignLogo.png" alt="logo" width={27} height={27} />
+        <span>OurDesign</span>
       </Link>
 
       <NavLinksComponent isAuthorized={isAuthorized || ""} />

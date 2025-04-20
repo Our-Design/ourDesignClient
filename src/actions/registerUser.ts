@@ -23,7 +23,13 @@ export const registerUser = async ({
       }
     );
     const respData = await res.json();
-    console.log(respData);
+    // console.log(respData);
+    if (res.ok) {
+      (await cookies()).set({
+        name: "userId",
+        value: respData.user._id,
+      });
+    }
     // if (!res.ok) {
     //   throw new Error(respData.errors[0].msg);
     // }

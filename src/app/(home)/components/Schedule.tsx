@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { IoMdCheckmark } from "react-icons/io";
 
@@ -30,12 +31,18 @@ const Schedule = () => {
           ))}
         </div>
         <div className="flex flex-wrap justify-center gap-4 lg:text-xl text-base">
-          <button className="bg-white shadow-lg hover:shadow-xl cursor-pointer text-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl">
+          <Link
+            href="/dashboard"
+            className="bg-white shadow-lg hover:shadow-xl cursor-pointer text-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl"
+          >
             Get Started Now
-          </button>
-          <button className="text-white shadow-lg hover:shadow-xl cursor-pointer bg-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl">
+          </Link>
+          <Link
+            href="/dashboard"
+            className="text-white shadow-lg hover:shadow-xl cursor-pointer bg-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl"
+          >
             Schedule Demo
-          </button>
+          </Link>
         </div>
       </div>
     </main>

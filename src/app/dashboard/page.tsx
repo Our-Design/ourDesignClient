@@ -4,6 +4,7 @@ import LeadsList from "./components/LeadsList";
 import ZeroStateComponent from "@/components/ZeroStateComponent";
 import { cookies } from "next/headers";
 import Link from "next/link";
+import Image from "next/image";
 
 const Dashboard = async () => {
   const isAuthorized = (await cookies()).get("accessToken")?.value;
@@ -11,6 +12,7 @@ const Dashboard = async () => {
 
   if (isAuthorized?.length) {
     leads = await fetchAllLeads();
+    // console.log({ leads });
   }
 
   return (
@@ -26,6 +28,12 @@ const Dashboard = async () => {
         )
       ) : (
         <div className="flex flex-col items-center gap-4 py-12">
+          <Image
+            src="/not-authorized.png"
+            alt="not authorized"
+            width={250}
+            height={250}
+          />
           <p>You need to login to see leads.</p>
           <Link
             href="/login"

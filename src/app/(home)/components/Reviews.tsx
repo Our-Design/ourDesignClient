@@ -77,7 +77,7 @@ const Reviews = () => {
         </div>
         <div className="flex flex-col lg:items-start items-end lg:w-1/2 w-full">
           <TestimonialCarousel />
-          <div className="w-24 h-24 bg-soft"></div>
+          <div className="w-full h-24 bg-soft"></div>
         </div>
       </div>
     </main>

@@ -10,7 +10,7 @@ const blogData = [
       "Stay ahead of the curve with these cutting-edge design trends that will dominate 2025.",
     date: "28-Mar-2025",
     image:
-      "https://images.livspace-cdn.com/w:3840/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/design-ideas-thumbnails-1628773921-7vSz1/jas-thumbnails-1662014793-zEzY3/mobile-1662014804-Sebbn/kitchen-m-1662025086-jIt6f.png",
+      "https://chiedesign.in/wp-content/uploads/2022/05/Luxury-Interior-Design-Living-Room.jpg",
   },
   {
     id: 2,

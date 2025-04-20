@@ -19,6 +19,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.home-designing.com",
       },
+      {
+        protocol: "https",
+        hostname: "images.kreatecube.com",
+      },
+      {
+        protocol: "https",
+        hostname: "chiedesign.in",
+      },
     ],
   },
 };

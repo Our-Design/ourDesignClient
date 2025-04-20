@@ -32,7 +32,7 @@ const LeadCard = ({ leadDetails }: { leadDetails: Lead }) => {
           status === "new" ? "bg-primary" : "bg-red-400"
         }`}
       >
-        {status === "new" ? "Buy" : "Sold"}
+        {status === "new" ? "New" : "Sold"}
       </button>
 
       <div className="absolute w-40 h-40 rounded-full top-0 right-0 translate-x-[50%] translate-y-[-40%] bg-[#FFD6D6]/80"></div>
