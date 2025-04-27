@@ -36,13 +36,15 @@ const NavLinksComponent = ({ isAuthorized }: { isAuthorized: string }) => {
           isOpen ? "flex flex-col backdrop-blur-2xl bg-white py-6" : "hidden"
         }`}
       >
-        <Link
-          href="/dashboard"
-          className="hover:font-semibold"
-          onClick={() => setIsOpen(false)}
-        >
-          Dashboard
-        </Link>
+        {isAuthorized?.length ? (
+          <Link
+            href="/dashboard"
+            className="hover:font-semibold"
+            onClick={() => setIsOpen(false)}
+          >
+            Dashboard
+          </Link>
+        ) : null}
         {isAuthorized?.length ? (
           <Link
             href="/my-leads"
