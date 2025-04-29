@@ -106,17 +106,17 @@ const EnquireForm = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <InputField
-            label="Address Line 1"
+            label="House/Flat No."
             name="address1"
-            placeholder="e.g., 44/1 Bharat Apartment"
+            placeholder="Enter House/Flat No."
             value={formData.address1}
             onChange={handleChange}
             error={errors.address1}
             required
           />
           <InputField
-            label="Address Line 2"
-            placeholder="e.g., 4C 5th Main Road"
+            label="Street/Area"
+            placeholder="Enter Street/Area"
             name="address2"
             value={formData.address2}
             onChange={handleChange}
