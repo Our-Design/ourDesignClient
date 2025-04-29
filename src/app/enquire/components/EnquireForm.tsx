@@ -108,6 +108,7 @@ const EnquireForm = () => {
           <InputField
             label="Address Line 1"
             name="address1"
+            placeholder="e.g., 44/1 Bharat Apartment"
             value={formData.address1}
             onChange={handleChange}
             error={errors.address1}
@@ -115,6 +116,7 @@ const EnquireForm = () => {
           />
           <InputField
             label="Address Line 2"
+            placeholder="e.g., 4C 5th Main Road"
             name="address2"
             value={formData.address2}
             onChange={handleChange}

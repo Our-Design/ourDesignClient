@@ -9,6 +9,7 @@ type InputFieldProps = {
   type?: string;
   required?: boolean;
   isTextarea?: boolean;
+  placeholder?: string;
 };
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -20,6 +21,7 @@ const InputField: React.FC<InputFieldProps> = ({
   type = "text",
   required,
   isTextarea = false,
+  placeholder,
 }) => {
   return (
     <div className="flex flex-col gap-1">
@@ -41,7 +43,9 @@ const InputField: React.FC<InputFieldProps> = ({
           value={value}
           onChange={onChange}
           className="bg-white p-3 rounded border border-gray-300 outline-none font-semibold"
-          placeholder={`Enter ${label.toLowerCase()}`}
+          placeholder={
+            placeholder ? placeholder : `Enter ${label.toLowerCase()}`
+          }
         />
       )}
       {error && <span className="text-red-500 text-sm">{error}</span>}
