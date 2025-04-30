@@ -5,7 +5,7 @@ import InputField from "@/components/InputField";
 import SpinnerLocal from "@/components/SpinnerLocal";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 const EnquireForm = () => {
   const [formData, setFormData] = useState({

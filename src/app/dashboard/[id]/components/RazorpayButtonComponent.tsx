@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Script from "next/script";
 import { createOrder } from "@/actions/createOrder";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import { redirect } from "next/navigation";
 
 interface RazorpayPaymentButtonProps {

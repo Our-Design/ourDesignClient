@@ -5,7 +5,7 @@ import SpinnerLocal from "@/components/SpinnerLocal";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 const SignUpForm = () => {
   const [name, setName] = useState<string>("");

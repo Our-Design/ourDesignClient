@@ -1,6 +1,6 @@
 import { fetchMyLeads } from "@/actions/fetchMyLeads";
 import React from "react";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import MyLeadsList from "./components/LeadsList";
 import ZeroStateComponent from "@/components/ZeroStateComponent";
 import Link from "next/link";

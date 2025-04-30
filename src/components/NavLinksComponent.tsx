@@ -6,7 +6,7 @@ import DesignIdeasNavigation from "./DesignIdeasNavigation";
 import { CgProfile } from "react-icons/cg";
 import { logout } from "@/actions/logout";
 import Spinner from "./Spinner";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
 const NavLinksComponent = ({ isAuthorized }: { isAuthorized: string }) => {
