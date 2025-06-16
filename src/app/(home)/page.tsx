@@ -1,4 +1,5 @@
 import Features from "./components/Features";
+import FormPopup from "./components/FormPopup";
 import HeroSection from "./components/HeroSection";
 import HowItWorks from "./components/HowItWorks";
 import Pricing from "./components/Pricing";
@@ -14,6 +15,7 @@ export default function Home() {
       <Pricing />
       <Reviews />
       <Schedule />
+      <FormPopup />
     </>
   );
 }

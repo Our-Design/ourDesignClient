@@ -117,8 +117,9 @@ const Pricing = () => {
         href="/dashboard"
         className="bg-white text-primary cursor-pointer hover:scale-102 hover:shadow-2xl rounded-md p-8 lg:w-1/2 flex flex-col items-center shadow-xl gap-6 lg:my-20 my-10"
       >
-        <h3 className="text-5xl font-bold flex items-end">
-          ₹800<span className="text-lg">/lead</span>
+        <h3 className="text-4xl font-bold flex items-end">
+          {/* ₹800<span className="text-lg">/lead</span> */}
+          At reasonable prices
         </h3>
         <p className="lg:text-xl text-lg font-semibold text-center">
           Get high-quality, verified leads to grow your business.

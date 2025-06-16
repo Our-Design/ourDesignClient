@@ -112,6 +112,7 @@ const SignUpForm = () => {
             setPassword(val);
             setErrors((prev) => ({ ...prev, password: "" }));
           }}
+          placeholder="Password(min 6 characters)"
         />
         {errors.password && (
           <p className="text-red-500 text-sm mt-1">{errors.password}</p>

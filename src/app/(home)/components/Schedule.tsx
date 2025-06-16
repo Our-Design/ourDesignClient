@@ -37,12 +37,12 @@ const Schedule = () => {
           >
             Get Started Now
           </Link>
-          <Link
+          {/* <Link
             href="/dashboard"
             className="text-white shadow-lg hover:shadow-xl cursor-pointer bg-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl"
           >
             Schedule Demo
-          </Link>
+          </Link> */}
         </div>
       </div>
     </main>

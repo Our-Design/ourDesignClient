@@ -6,6 +6,7 @@ type PasswordInputProps = {
   setIsVisible: (isVisible: boolean) => void;
   state: string;
   setter: (state: string) => void;
+  placeholder?: string;
 };
 
 const PasswordInput = ({
@@ -13,13 +14,14 @@ const PasswordInput = ({
   setIsVisible,
   state,
   setter,
+  placeholder = "Password",
 }: PasswordInputProps) => {
   return (
     <>
       <div className="border outline-none rounded flex items-center justify-between">
         <input
           type={isVisible ? "text" : "password"}
-          placeholder="Password"
+          placeholder={placeholder}
           className="p-2 outline-none flex-grow"
           value={state}
           onChange={(e) => setter(e.target.value)}
