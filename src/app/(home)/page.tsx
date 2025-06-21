@@ -1,3 +1,4 @@
+import DesignGallery from "./components/DesignGallery";
 import Features from "./components/Features";
 import FormPopup from "./components/FormPopup";
 import HeroSection from "./components/HeroSection";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <DesignGallery />
       <HowItWorks />
       <Features />
       <Pricing />
