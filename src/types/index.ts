@@ -27,3 +27,19 @@ export interface RazorpayResponse {
   razorpay_order_id: string;
   razorpay_signature: string;
 }
+
+export interface CloudinaryImage {
+  public_id: string;
+  secure_url: string;
+  width: number;
+  height: number;
+  display_name?: string;
+  created_at: string;
+  bytes: number;
+  format: string;
+}
+
+export interface CloudinaryResponse {
+  resources: CloudinaryImage[];
+  total_count: number;
+}
