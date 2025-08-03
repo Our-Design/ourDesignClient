@@ -43,3 +43,22 @@ export interface CloudinaryResponse {
   resources: CloudinaryImage[];
   total_count: number;
 }
+
+// Blog types
+export interface BlogPost {
+  id: number;
+  slug: string;
+  category: string;
+  title: string;
+  description: string;
+  content: string;
+  date: string;
+  readTime: string;
+  image: string;
+  author: {
+    name: string;
+    avatar: string;
+  };
+  tags: string[];
+  featured?: boolean;
+}
