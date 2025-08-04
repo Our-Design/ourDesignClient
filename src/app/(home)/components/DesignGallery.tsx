@@ -78,7 +78,7 @@ const DesignGallery = () => {
   const currentSlide = Math.floor(startIdx / imagesPerView);
 
   return (
-    <section className="relative bg-gradient-to-br from-secondary via-white to-secondary py-20 lg:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br  from-secondary via-white to-secondary py-20 lg:py-32 overflow-hidden lg:pt-48 pt-80">
       {/* Background Decorative Elements */}
       <div className="absolute top-10 left-10 w-20 h-20 bg-primary/5 rounded-full blur-xl"></div>
       <div className="absolute bottom-20 right-20 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>

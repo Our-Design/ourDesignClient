@@ -66,7 +66,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <main className="lg:pt-32 pt-24 lg:pb-52 pb-[400px] px-8 bg-secondary relative bg-[url('https://library.elementor.com/real-estate-flexbox/wp-content/uploads/sites/295/2020/05/Hero.png')] bg-cover max-lg:bg-center">
+    <main className="  mb- lg:pt-32 pt-24 lg:pb-52 pb-[400px] px-8 bg-secondary relative bg-[url('https://library.elementor.com/real-estate-flexbox/wp-content/uploads/sites/295/2020/05/Hero.png')] bg-cover max-lg:bg-center">
       <div className="flex lg:flex-row flex-col lg:justify-between items-center lg:gap-10 gap-20">
         <div className="space-y-6 lg:w-1/2">
           <h1 className="font-bold uppercase lg:text-6xl text-5xl">
