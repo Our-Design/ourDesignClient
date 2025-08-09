@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-// import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const quickLinks = [
@@ -35,20 +35,36 @@ const Footer = () => {
             Connecting interior designers with quality leads to grow their
             business.
           </p>
-          {/* <div className="flex items-center gap-4">
-            <a href="#">
-              <FaFacebook size={24} />
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.instagram.com/our__design"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+              aria-label="Follow us on Instagram"
+            >
+              <div className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 transform hover:scale-110 group-hover:shadow-lg">
+                <FaInstagram
+                  size={20}
+                  className="text-background group-hover:text-pink-200"
+                />
+              </div>
             </a>
-            <a href="#">
-              <FaTwitter size={24} />
+            <a
+              href="https://www.facebook.com/people/Our-Design/100063770276463/#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+              aria-label="Follow us on Facebook"
+            >
+              <div className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 transform hover:scale-110 group-hover:shadow-lg">
+                <FaFacebook
+                  size={20}
+                  className="text-background group-hover:text-blue-200"
+                />
+              </div>
             </a>
-            <a href="#">
-              <FaLinkedin size={24} />
-            </a>
-            <a href="#">
-              <FaInstagram size={24} />
-            </a>
-          </div> */}
+          </div>
         </div>
 
         <div>

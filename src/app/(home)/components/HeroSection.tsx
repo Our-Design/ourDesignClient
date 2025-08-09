@@ -18,23 +18,23 @@ const HeroSection = () => {
 
   const numbers = [
     {
-      number: 100000,
+      number: 27000,
       label: "#OurdesignHomes",
       includePlus: true,
     },
     {
-      number: 3500,
+      number: 800,
       label: "designers",
       includePlus: true,
     },
     {
-      number: 40,
+      number: 27,
       label: "cities",
       includePlus: false,
     },
     {
-      number: 4,
-      label: "countries",
+      number: 1,
+      label: "country",
       includePlus: false,
     },
   ];

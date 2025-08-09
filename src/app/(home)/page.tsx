@@ -9,7 +9,7 @@ import Schedule from "./components/Schedule";
 
 export default function Home() {
   return (
-    <>
+    <FormPopup>
       <HeroSection />
       <DesignGallery />
       <HowItWorks />
@@ -17,7 +17,6 @@ export default function Home() {
       <Pricing />
       <Reviews />
       <Schedule />
-      <FormPopup />
-    </>
+    </FormPopup>
   );
 }

@@ -34,7 +34,7 @@ const ContactUs = () => {
 
         <section className="mb-6">
           <h2 className="text-2xl font-semibold">Office Address</h2>
-          <p>123, Design Street, Interior City, India - 560001</p>
+          <p>254, 2nd floor ,shiv nagar colony , bhiwani , Haryana ,127021</p>
         </section>
 
         <section>
@@ -46,20 +46,20 @@ const ContactUs = () => {
           <ul className="list-disc list-inside">
             <li>
               Instagram:{" "}
-              <a href="#" className="text-blue-400">
-                @OurDesign
+              <a
+                href="https://www.instagram.com/our__design"
+                className="text-blue-400"
+              >
+                @our__design
               </a>
             </li>
             <li>
               Facebook:{" "}
-              <a href="#" className="text-blue-400">
+              <a
+                href="https://www.facebook.com/people/Our-Design/100063770276463/#"
+                className="text-blue-400"
+              >
                 OurDesign Official
-              </a>
-            </li>
-            <li>
-              LinkedIn:{" "}
-              <a href="#" className="text-blue-400">
-                OurDesign
               </a>
             </li>
           </ul>

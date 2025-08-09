@@ -5,26 +5,23 @@ import Image from "next/image";
 
 const reviews = [
   {
-    name: "Sarah Brown",
+    name: "Muskaan Handa",
     pfp: "https://library.elementor.com/real-estate-flexbox/wp-content/uploads/sites/295/2020/05/Testimonial-3.png",
     rating: 5,
-    company: "Modern Interiors Co.",
     review:
       "The quality of leads has been exceptional. I have converted 80% of the leads into clients, transforming my business completely.",
   },
   {
-    name: "Mike Rodriguez",
+    name: "Sachin Sharma",
     pfp: "https://library.elementor.com/real-estate-flexbox/wp-content/uploads/sites/295/2020/05/Testimonial-2.png",
     rating: 5,
-    company: "Elite Designs",
     review:
       "Best investment I have made for my design business. The leads are pre-qualified and ready to start projects immediately.",
   },
   {
-    name: "Anna Kim",
+    name: "Asim Salim",
     pfp: "https://library.elementor.com/real-estate-flexbox/wp-content/uploads/sites/295/2020/05/Testimonial-pic-1.png",
     rating: 5,
-    company: "Luxe Interiors",
     review:
       "The consistent flow of quality leads has helped me scale my business. Customer support is outstanding too!",
   },
@@ -63,7 +60,6 @@ export default function TestimonialCarousel() {
                 className="rounded-full"
               />
               <h3 className="font-semibold mt-2">{review.name}</h3>
-              <p className="text-sm text-accent">{review.company}</p>
             </div>
           </div>
         ))}
