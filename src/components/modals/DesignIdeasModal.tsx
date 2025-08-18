@@ -84,8 +84,8 @@ const DesignIdeasModal = ({
     { id: 2, label: "Bathroom", path: "bathroom" },
     { id: 3, label: "Bedroom", path: "bedroom" },
     { id: 4, label: "Boundary Wall", path: "boundary-wall" },
-    { id: 5, label: "Clinic", path: "clinic" },
-    { id: 6, label: "Decoration", path: "decoration" },
+    // { id: 5, label: "Clinic", path: "clinic" },
+    // { id: 6, label: "Decoration", path: "decoration" },
     { id: 7, label: "Doors", path: "doors" },
   ];
   const modalLinks2 = [
