@@ -120,7 +120,7 @@ const Lead = async ({ params }: LeadProps) => {
 
       {status === "new" ? (
         <RazorpayPaymentButton
-          amount={leadPrice * 100}
+          amount={leadPrice}
           leadId={_id}
           designerId={userId}
           // onSuccess={() => redirect("/my-leads")}

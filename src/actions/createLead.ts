@@ -1,7 +1,5 @@
 "use server";
 
-import { cookies } from "next/headers";
-
 interface Address {
   addressLine1: string;
   addressLine2?: string;
@@ -86,16 +84,24 @@ export const createLead = async ({ formData }: { formData: FormDataType }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${(await cookies()).get("accessToken")!.value}`,
+        Accept: "application/json",
       },
       body: JSON.stringify(body),
     });
 
-    await res.json();
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      const msg = Array.isArray(data?.message)
+        ? data.message.join(", ")
+        : typeof data?.message === "string"
+        ? data.message
+        : "Failed to create lead.";
+      throw new Error(msg);
+    }
 
     return {
       success: true,
-      message: "Lead created successfully!",
+      message: data?.message || "Thanks! Your enquiry has been submitted.",
     };
   } catch (error) {
     return {

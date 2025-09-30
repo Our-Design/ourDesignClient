@@ -72,11 +72,14 @@ const NavLinksComponent = ({ isAuthorized }: { isAuthorized: string }) => {
             <CgProfile className="text-2xl cursor-pointer" />
           </Link>
         )}
-        <Link href="/enquire" onClick={() => setIsOpen(false)}>
-          <button className="bg-primary text-white shadow-lg p-2 px-4 font-medium rounded-lg cursor-pointer hover:bg-black">
-            Enquire Now
-          </button>
-        </Link>
+
+        {!isAuthorized?.length && (
+          <Link href="/enquire" onClick={() => setIsOpen(false)}>
+            <button className="bg-primary text-white shadow-lg p-2 px-4 font-medium rounded-lg cursor-pointer hover:bg-black">
+              Enquire Now
+            </button>
+          </Link>
+        )}
 
         {isLoggingOut && <Spinner />}
       </div>

@@ -1,7 +1,7 @@
 export interface Lead {
   _id: string;
   customerName: string;
-  customerMobile: number;
+  customerMobile: string;
   address: {
     addressLine1: string;
     addressLine2?: string;
@@ -10,16 +10,17 @@ export interface Lead {
     country: string;
     pinCode: string;
   };
-  budget: number;
-  status: string;
+  budget?: number;
+  status: "new" | "sold";
   isVerified: boolean;
-  assignedTo: null;
-  propertyType: string;
-  description: string;
-  propertySize: number;
+  assignedTo: string | null;
+  propertyType?: string;
+  description?: string;
+  propertySize?: number;
+  leadPrice?: number;
   createdAt: string;
   updatedAt: string;
-  __v: number;
+  __v?: number;
 }
 
 export interface RazorpayResponse {

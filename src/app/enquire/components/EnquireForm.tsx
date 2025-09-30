@@ -37,16 +37,16 @@ const EnquireForm = () => {
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
 
-    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.name.trim()) newErrors.name = "Please enter your name.";
     if (!formData.mobile.trim() || !/^\d{10}$/.test(formData.mobile))
-      newErrors.mobile = "Valid 10-digit mobile number required";
+      newErrors.mobile = "Please enter a valid 10-digit mobile number.";
     if (!formData.address1.trim())
-      newErrors.address1 = "Address line 1 is required";
-    if (!formData.city.trim()) newErrors.city = "City is required";
-    if (!formData.state.trim()) newErrors.state = "State is required";
+      newErrors.address1 = "House/Flat No. is required.";
+    if (!formData.city.trim()) newErrors.city = "City is required.";
+    if (!formData.state.trim()) newErrors.state = "State is required.";
     if (!formData.pincode.trim() || !/^\d{6}$/.test(formData.pincode))
-      newErrors.pincode = "Valid 6-digit pincode required";
-    if (!formData.budget.trim()) newErrors.budget = "Budget is required";
+      newErrors.pincode = "Please enter a valid 6-digit pincode.";
+    if (!formData.budget.trim()) newErrors.budget = "Budget is required.";
 
     return newErrors;
   };
@@ -64,10 +64,10 @@ const EnquireForm = () => {
     const res = await createLead({ formData });
     setLoading(false);
     if (res.success) {
-      toast.success("Lead created successfully!");
+      toast.success(res.message || "Thanks! Your enquiry has been submitted.");
       router.push("/");
-    } else if (!res.success) {
-      toast.error("Failed to create lead!");
+    } else {
+      toast.error(res.message || "Sorry, we couldn't submit your enquiry.");
     }
   };
 
@@ -140,7 +140,7 @@ const EnquireForm = () => {
           <InputField
             label="Pincode"
             name="pincode"
-            type="number"
+            type="tel"
             value={formData.pincode}
             onChange={handleChange}
             error={errors.pincode}

@@ -3,7 +3,13 @@ import Link from "next/link";
 import React from "react";
 import { IoLocationSharp } from "react-icons/io5";
 
-const LeadCard = ({ leadDetails }: { leadDetails: Lead }) => {
+type LeadCardProps = {
+  leadDetails: Lead;
+  /** Optional override for the CTA/button label (e.g., "View" in My Leads) */
+  buttonLabel?: string;
+};
+
+const LeadCard = ({ leadDetails, buttonLabel }: LeadCardProps) => {
   const { _id, customerName, address, budget, status, propertyType } =
     leadDetails;
 
@@ -32,7 +38,7 @@ const LeadCard = ({ leadDetails }: { leadDetails: Lead }) => {
           status === "new" ? "bg-primary" : "bg-red-400"
         }`}
       >
-        {status === "new" ? "New" : "Sold"}
+        {buttonLabel ?? (status === "new" ? "New" : "Sold")}
       </button>
 
       <div className="absolute w-40 h-40 rounded-full top-0 right-0 translate-x-[50%] translate-y-[-40%] bg-[#FFD6D6]/80"></div>

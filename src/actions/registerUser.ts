@@ -3,13 +3,17 @@
 import { cookies } from "next/headers";
 
 export const registerUser = async ({
+  name,
+  email,
   phone,
   password,
-  name,
+  otp,
 }: {
+  name: string;
+  email: string;
   phone: string;
   password: string;
-  name: string;
+  otp: string;
 }) => {
   try {
     const res = await fetch(
@@ -19,46 +23,44 @@ export const registerUser = async ({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ phone, password, name }),
+        body: JSON.stringify({ name, email, phone, password, otp }),
       }
     );
-    const respData = await res.json();
-    // console.log(respData);
-    if (res.ok) {
-      (await cookies()).set({
-        name: "userId",
-        value: respData.user._id,
-      });
+    interface RegisterResponse {
+      accessToken?: string;
+      message?: string;
+      error?: string;
+      user?: { _id?: string };
     }
-    // if (!res.ok) {
-    //   throw new Error(respData.errors[0].msg);
-    // }
-    // add cookies to the application here
+    let data: RegisterResponse | null = null;
+    try {
+      data = (await res.json()) as RegisterResponse;
+    } catch {}
 
-    // const c = res.headers.getSetCookie();
-    // const accessToken = c.find((cookie) => cookie.includes("accessToken"));
-    const accessToken = respData.accessToken;
-    if (!accessToken) {
+    if (!res.ok) {
       return {
         success: false,
-
-        message: "No cookies were found!",
+        message:
+          (data && (data.message || data.error)) ||
+          "Registration failed. Please check your details and OTP.",
       };
     }
-    // const parsedAccessToken = parse(accessToken);
 
-    // if (!parsedAccessToken.accessToken || !parsedAccessToken.Expires) {
-    //   throw new Error("Invalid cookie data");
-    // }
-    (await cookies()).set({
-      name: "accessToken",
-      value: accessToken,
-      //   value: parsedAccessToken.accessToken,
-      //   expires: new Date(parsedAccessToken.Expires),
-    });
+    const accessToken = data?.accessToken;
+    const userId = data?.user?._id;
+    if (!accessToken || !userId) {
+      return {
+        success: false,
+        message: "Registration succeeded but session token is missing.",
+      };
+    }
+
+    (await cookies()).set({ name: "userId", value: String(userId) });
+    (await cookies()).set({ name: "accessToken", value: String(accessToken) });
+
     return {
       success: true,
-      message: respData.message,
+      message: data?.message || "Registered successfully",
     };
   } catch (error) {
     return {

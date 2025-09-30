@@ -9,10 +9,10 @@ import { toast } from "sonner";
 
 const LoginForm = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [phone, setPhone] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [errors, setErrors] = useState<{ phone?: string; password?: string }>(
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
     {}
   );
   const router = useRouter();
@@ -21,9 +21,9 @@ const LoginForm = () => {
     e.preventDefault();
 
     const newErrors: typeof errors = {};
-    if (!phone.trim()) newErrors.phone = "Mobile number is required.";
-    else if (!/^[0-9]{10}$/.test(phone))
-      newErrors.phone = "Enter a valid 10-digit mobile number.";
+    if (!email.trim()) newErrors.email = "Email is required.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      newErrors.email = "Enter a valid email address.";
 
     if (!password.trim()) newErrors.password = "Password is required.";
 
@@ -33,15 +33,16 @@ const LoginForm = () => {
     }
 
     setIsLoading(true);
-    const response = await loginUser({ phone, password });
+    const response = await loginUser({ email, password });
     setIsLoading(false);
 
     if (!response.success) {
-      toast.error("Failed to log in!");
-    } else {
-      toast.success("Logged In Successfully!");
-      router.push("/dashboard");
+      toast.error(response.message || "Failed to log in!");
+      return;
     }
+
+    toast.success(response.message || "Logged In Successfully!");
+    router.push("/dashboard");
   };
 
   return (
@@ -52,17 +53,21 @@ const LoginForm = () => {
       <h2 className="text-xl font-bold">Welcome back!</h2>
       <div>
         <input
-          type="text"
-          placeholder="Mobile No."
+          type="email"
+          placeholder="Email"
           className="border outline-none p-2 rounded w-full"
-          value={phone}
+          value={email}
           onChange={(e) => {
-            setPhone(e.target.value);
-            setErrors((prev) => ({ ...prev, phone: "" }));
+            setEmail(e.target.value);
+            setErrors((prev) => ({ ...prev, email: "" }));
           }}
+          aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? "email-error" : undefined}
         />
-        {errors.phone && (
-          <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+        {errors.email && (
+          <p id="email-error" className="text-red-500 text-sm mt-1">
+            {errors.email}
+          </p>
         )}
       </div>
       <div>
@@ -85,7 +90,9 @@ const LoginForm = () => {
         </span>
         <button
           type="submit"
-          className="px-8 py-2 bg-primary rounded shadow-lg hover:scale-101 cursor-pointer hover:shadow-xl text-white font-bold uppercase"
+          className="px-8 py-2 bg-primary rounded shadow-lg hover:scale-101 cursor-pointer hover:shadow-xl text-white font-bold uppercase disabled:opacity-60 disabled:cursor-not-allowed"
+          disabled={isLoading}
+          aria-busy={isLoading}
         >
           {isLoading ? <SpinnerLocal /> : "Log In"}
         </button>

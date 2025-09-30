@@ -43,13 +43,13 @@ const TermsAndConditions = () => {
           </ul>
         </section>
 
-        <section className="mb-6">
+        {/* <section className="mb-6">
           <h2 className="text-2xl font-semibold">Payments</h2>
           <p>
             OurDesign may offer paid services. Users agree to our payment
             policies when using paid features.
           </p>
-        </section>
+        </section> */}
 
         <section className="mb-6">
           <h2 className="text-2xl font-semibold">Limitation of Liability</h2>

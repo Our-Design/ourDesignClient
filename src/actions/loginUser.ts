@@ -1,11 +1,18 @@
 "use server";
 import { cookies } from "next/headers";
 
+interface LoginSuccessResponse {
+  accessToken?: string;
+  message?: string;
+  user?: { _id?: string };
+  error?: string;
+}
+
 export const loginUser = async ({
-  phone,
+  email,
   password,
 }: {
-  phone: string;
+  email: string;
   password: string;
 }) => {
   try {
@@ -16,46 +23,41 @@ export const loginUser = async ({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ phone, password }),
+        body: JSON.stringify({ email, password }),
       }
     );
-    const respData = await res.json();
-    // console.log({ respData });
-    if (res.ok) {
-      (await cookies()).set({
-        name: "userId",
-        value: respData.user._id,
-      });
+
+    let data: LoginSuccessResponse | null = null;
+    try {
+      data = (await res.json()) as LoginSuccessResponse;
+    } catch {
+      // ignore json parse error; keep data null
     }
-    // if (!res.ok) {
-    //   throw new Error(respData.errors[0].msg);
-    // }
 
-    // add cookies to the application here
+    if (!res.ok) {
+      const message =
+        (data && (data.message || data.error)) ||
+        "Unable to log in. Please check your credentials.";
+      return { success: false, message };
+    }
 
-    // const c = res.headers.getSetCookie();
-    // const accessToken = c.find((cookie) => cookie.includes("accessToken"));
-    const accessToken = respData.accessToken;
-    if (!accessToken) {
+    // Guard: require tokens and user in a successful response
+    const accessToken = data?.accessToken;
+    const userId = data?.user?._id;
+    if (!accessToken || !userId) {
       return {
         success: false,
-        message: "No cookies were found!",
+        message: "Login succeeded but token/session is missing.",
       };
     }
-    // const parsedAccessToken = parse(accessToken);
 
-    // if (!parsedAccessToken.accessToken || !parsedAccessToken.Expires) {
-    //   throw new Error("Invalid cookie data");
-    // }
-    (await cookies()).set({
-      name: "accessToken",
-      value: accessToken,
-      // value: parsedAccessToken.accessToken,
-      // expires: new Date(parsedAccessToken.Expires),
-    });
+    // Persist cookies
+    (await cookies()).set({ name: "userId", value: String(userId) });
+    (await cookies()).set({ name: "accessToken", value: String(accessToken) });
+
     return {
       success: true,
-      message: respData?.message,
+      message: data?.message || "Logged in successfully",
     };
   } catch (error) {
     return {

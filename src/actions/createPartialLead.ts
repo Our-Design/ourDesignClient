@@ -1,7 +1,5 @@
 "use server";
 
-import { cookies } from "next/headers";
-
 interface RequestBody {
   customerName: string;
   customerMobile: string;
@@ -31,19 +29,27 @@ export const createPartialLead = async ({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            (await cookies()).get("accessToken")!.value
-          }`,
         },
         body: JSON.stringify(body),
       }
     );
 
-    await res.json();
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      return {
+        success: false,
+        message:
+          (data && (data.message || data.error)) ||
+          "Failed to submit details. Please try again.",
+      };
+    }
 
     return {
       success: true,
-      message: "Lead details submitted successfully!",
+      message:
+        (data && (data.message || data.success)) ||
+        "Lead details submitted successfully!",
     };
   } catch (error) {
     return {

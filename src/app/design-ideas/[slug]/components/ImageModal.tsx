@@ -67,16 +67,20 @@ const ImageModal: React.FC<ImageModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+    >
       <div
-        className="absolute inset-0 cursor-pointer"
+        className="absolute inset-0 cursor-pointer z-[40]"
         onClick={handleBackdropClick}
       />
 
       {/* Close Button */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 z-60 text-white hover:text-gray-300 transition-colors"
+        className="absolute top-4 right-4 z-[60] text-white hover:text-gray-300 transition-colors"
         aria-label="Close modal"
       >
         <svg
@@ -98,7 +102,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
       {onPrevious && (
         <button
           onClick={onPrevious}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-[60] text-white hover:text-gray-300 transition-colors"
           aria-label="Previous image"
         >
           <svg
@@ -120,7 +124,7 @@ const ImageModal: React.FC<ImageModalProps> = ({
       {onNext && (
         <button
           onClick={onNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-60 text-white hover:text-gray-300 transition-colors"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-[60] text-white hover:text-gray-300 transition-colors"
           aria-label="Next image"
         >
           <svg
@@ -140,13 +144,13 @@ const ImageModal: React.FC<ImageModalProps> = ({
       )}
 
       {/* Image Container */}
-      <div className="relative max-w-[90vw] max-h-[90vh] mx-4">
+      <div className="relative w-[90vw] h-[90vh] max-w-[90vw] max-h-[90vh] mx-4 z-[50]">
         <Image
           src={image.secure_url}
           alt={image.display_name || "Design image"}
-          width={image.width}
-          height={image.height}
-          className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+          fill
+          className="object-contain rounded-lg shadow-2xl"
+          sizes="(min-width: 1024px) 90vw, 90vw"
           priority
         />
 

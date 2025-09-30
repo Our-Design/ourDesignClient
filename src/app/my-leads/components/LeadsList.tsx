@@ -42,7 +42,7 @@ const MyLeadsList = ({ leads }: { leads: Lead[] }) => {
       <div className="grid lg:grid-cols-3 grid-cols-1 gap-8">
         {leadsData.length ? (
           leadsData.map((lead: Lead) => (
-            <LeadCard key={lead._id} leadDetails={lead} />
+            <LeadCard key={lead._id} leadDetails={lead} buttonLabel="View" />
           ))
         ) : (
           <p className="col-span-full text-center text-gray-500">
