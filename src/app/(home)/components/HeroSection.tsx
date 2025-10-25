@@ -28,7 +28,7 @@ const HeroSection = () => {
       includePlus: true,
     },
     {
-      number: 27,
+      number: 4,
       label: "cities",
       includePlus: false,
     },

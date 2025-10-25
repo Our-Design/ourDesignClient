@@ -8,6 +8,7 @@ import { logout } from "@/actions/logout";
 import Spinner from "./Spinner";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import ProfileDropdown from "./ProfileDropdown";
 
 const NavLinksComponent = ({ isAuthorized }: { isAuthorized: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,12 +62,10 @@ const NavLinksComponent = ({ isAuthorized }: { isAuthorized: string }) => {
           </button>
         </Link>
         {isAuthorized?.length ? (
-          <button
-            onClick={handleLogout}
-            className="cursor-pointer hover:font-semibold text-primary"
-          >
-            Logout
-          </button>
+          <ProfileDropdown
+            onLogout={handleLogout}
+            isLoggingOut={isLoggingOut}
+          />
         ) : (
           <Link href="/login" onClick={() => setIsOpen(false)}>
             <CgProfile className="text-2xl cursor-pointer" />

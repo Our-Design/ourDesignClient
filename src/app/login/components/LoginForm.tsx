@@ -85,9 +85,11 @@ const LoginForm = () => {
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <span className="text-xs cursor-pointer hover:font-bold">
-          Forgot Password?
-        </span>
+        <Link href="/forgot-password">
+          <span className="text-xs cursor-pointer hover:font-bold text-primary">
+            Forgot Password?
+          </span>
+        </Link>
         <button
           type="submit"
           className="px-8 py-2 bg-primary rounded shadow-lg hover:scale-101 cursor-pointer hover:shadow-xl text-white font-bold uppercase disabled:opacity-60 disabled:cursor-not-allowed"

@@ -6,6 +6,9 @@ import HowItWorks from "./components/HowItWorks";
 import Pricing from "./components/Pricing";
 import Reviews from "./components/Reviews";
 import Schedule from "./components/Schedule";
+import CustomerServices from "./components/CustomerServices";
+import CustomerTestimonials from "./components/CustomerTestimonials";
+import FAQs from "./components/FAQs";
 
 export default function Home() {
   return (
@@ -15,8 +18,12 @@ export default function Home() {
       <HowItWorks />
       <Features />
       <Pricing />
+      {/* Customer-focused sections */}
+      <CustomerServices />
+      <CustomerTestimonials />
       <Reviews />
       <Schedule />
+      <FAQs />
     </FormPopup>
   );
 }
