@@ -8,18 +8,18 @@ const Footer = () => {
       path: "privacy-policy",
       label: "Privacy Policy",
     },
-    // {
-    //   path: "shopping-delivery",
-    //   label: "Shopping & Delivery",
-    // },
+    {
+      path: "shopping-delivery",
+      label: "Shopping & Delivery",
+    },
     {
       path: "terms-conditions",
       label: "Terms & Conditions",
     },
-    // {
-    //   path: "cancellation-refund",
-    //   label: "Cancellation & Refund",
-    // },
+    {
+      path: "cancellation-refund",
+      label: "Cancellation & Refund",
+    },
     {
       path: "contact-us",
       label: "Contact Us",
