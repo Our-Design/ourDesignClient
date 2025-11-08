@@ -1,130 +1,82 @@
 import Link from "next/link";
 import React from "react";
-// import { IoMdCheckmark } from "react-icons/io";
 
 const Pricing = () => {
-  // const pricingDetails = [
-  //   {
-  //     isMostPopular: false,
-  //     title: "Starter",
-  //     price: 299,
-  //     subtitle: "Perfect for new designers",
-  //     benefits: [
-  //       "10 Verified Leads/month",
-  //       "Basic Lead Details",
-  //       "Email Support",
-  //     ],
-  //     buttonText: "Get Started",
-  //   },
-  //   {
-  //     isMostPopular: true,
-  //     title: "Professional",
-  //     price: 599,
-  //     subtitle: "For established designers",
-  //     benefits: [
-  //       "25 Verified Leads/month",
-  //       "Detailed Project Briefs",
-  //       "Priority Support",
-  //       "Lead Analytics Dashboard",
-  //     ],
-  //     buttonText: "Get Started",
-  //   },
-  //   {
-  //     isMostPopular: false,
-  //     title: "Enterprise",
-  //     price: 999,
-  //     subtitle: "For design firms",
-  //     benefits: [
-  //       "50+ Verified Leads/month",
-  //       "Advanced Lead Filtering",
-  //       "24/7 Premium Support",
-  //       "Custom Integration",
-  //     ],
-  //     buttonText: "Contact Sales",
-  //   },
-  // ];
-
   return (
-    <main className="px-8 py-24 text-accent bg-secondary flex flex-col items-center">
-      <h2 className="text-4xl text-center text-primary">
-        Simple, Transparent Pricing
+    <main className="pt-60 px-8 py-24 text-accent bg-secondary flex flex-col items-center">
+      <h2 className="text-4xl text-center text-primary font-bold">
+        Simple, Transparent Approach
       </h2>
-      <p className="lg:text-xl text-base mt-4 text-center">
-        Choose this perfect investment to grow your interior design business
+      <p className="lg:text-xl text-base mt-4 text-center max-w-3xl">
+        Whether you&apos;re looking to design your home or grow your design
+        business, we make it easy to get started
       </p>
 
-      {/* <div className="grid lg:grid-cols-3 gap-6 grid-cols-1 my-20">
-        {pricingDetails.map((detail, index) => (
-          <div
-            key={index}
-            className={`relative rounded-xl overflow-hidden p-10 py-16 shadow-xl flex flex-col gap-6 items-center text-xl ${
-              detail.isMostPopular
-                ? "bg-primary text-white"
-                : "border bg-white border-gray-300"
-            }`}
-          >
-            <h3
-              className={`text-3xl font-bold ${
-                detail.isMostPopular ? "" : "text-primary"
-              }`}
-            >
-              {detail.title}
-            </h3>
-            <div>
-              <span
-                className={`text-4xl font-bold ${
-                  detail.isMostPopular ? "text-white" : "text-primary"
-                }`}
-              >
-                ${detail.price}
-              </span>{" "}
-              /month
-            </div>
-            <p className="max-lg:text-lg">{detail.subtitle}</p>
-            <div className="space-y-6 w-full">
-              {detail.benefits.map((value, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3 lg:text-xl text-base"
-                  >
-                    <IoMdCheckmark className="text-green-400" />
-                    <span>{value}</span>
-                  </div>
-                );
-              })}
-            </div>
-            <button
-              className={`w-full py-4 rounded-xl font-bold text-xl ${
-                detail.isMostPopular
-                  ? "bg-white text-black"
-                  : "bg-primary text-white"
-              }`}
-            >
-              {detail.buttonText}
-            </button>
-
-            {detail.isMostPopular ? (
-              <span className="px-6 py-2 bg-soft font-bold text-primary text-lg rounded-bl-2xl absolute top-0 right-0">
-                Most Popular
-              </span>
-            ) : null}
+      <div className="grid lg:grid-cols-2 gap-8 grid-cols-1 lg:my-20 my-10 w-full max-w-5xl">
+        {/* For Designers */}
+        <Link
+          href="/dashboard"
+          className="bg-white text-primary cursor-pointer hover:scale-102 hover:shadow-2xl rounded-xl p-8 flex flex-col items-center shadow-xl gap-6 transition-all border-2 border-primary/20"
+        >
+          <div className="inline-flex items-center rounded-full border border-primary bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+            For Designers
           </div>
-        ))}
-      </div> */}
+          <h3 className="text-3xl font-bold">Pay Per Lead</h3>
+          <p className="lg:text-xl text-lg font-semibold text-center">
+            Only pay for verified leads that match your criteria. No monthly
+            fees, no commitments.
+          </p>
+          <div className="text-5xl font-bold text-primary">
+            At Reasonable Prices
+          </div>
+          <ul className="text-left space-y-2 text-lg">
+            <li className="flex items-center gap-2">
+              <span className="text-green-600">✓</span> Verified customer
+              details
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-green-600">✓</span> Project budget included
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-green-600">✓</span> Instant notifications
+            </li>
+          </ul>
+          <div className="mt-4 px-6 py-3 bg-primary text-white rounded-lg font-semibold">
+            Browse Leads Now →
+          </div>
+        </Link>
 
-      <Link
-        href="/dashboard"
-        className="bg-white text-primary cursor-pointer hover:scale-102 hover:shadow-2xl rounded-md p-8 lg:w-1/2 flex flex-col items-center shadow-xl gap-6 lg:my-20 my-10"
-      >
-        <h3 className="text-4xl font-bold flex items-end">
-          {/* ₹800<span className="text-lg">/lead</span> */}
-          At reasonable prices
-        </h3>
-        <p className="lg:text-xl text-lg font-semibold text-center">
-          Get high-quality, verified leads to grow your business.
-        </p>
-      </Link>
+        {/* For Customers */}
+        <Link
+          href="/enquire"
+          className="bg-primary text-white cursor-pointer hover:scale-102 hover:shadow-2xl rounded-xl p-8 flex flex-col items-center shadow-xl gap-6 transition-all"
+        >
+          <div className="inline-flex items-center rounded-full border border-white bg-white/20 px-4 py-1.5 text-sm font-semibold text-white">
+            For Homeowners
+          </div>
+          <h3 className="text-3xl font-bold">Free Consultation</h3>
+          <p className="lg:text-xl text-lg font-semibold text-center">
+            Get expert design consultation at no cost. Discuss your vision and
+            get matched with the perfect designer.
+          </p>
+          <div className="text-5xl font-bold">₹0</div>
+          <ul className="text-left space-y-2 text-lg">
+            <li className="flex items-center gap-2">
+              <span className="text-green-300">✓</span> Free design consultation
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-green-300">✓</span> Verified designer
+              matching
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-green-300">✓</span> Transparent pricing
+            </li>
+          </ul>
+          <div className="mt-4 px-6 py-3 bg-white text-primary rounded-lg font-semibold">
+            Book Free Consultation →
+          </div>
+        </Link>
+      </div>
     </main>
   );
 };

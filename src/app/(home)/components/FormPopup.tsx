@@ -31,10 +31,40 @@ export const FormPopupProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const openForm = () => setIsOpen(true);
-  const closeForm = () => setIsOpen(false);
 
-  // Auto-open timer (existing functionality)
+  const closeForm = () => {
+    setIsOpen(false);
+    // Store the timestamp when user closes the modal
+    const now = new Date().getTime();
+    localStorage.setItem("formPopupClosedAt", now.toString());
+  };
+
+  // Check if modal should be shown based on 24-hour cooldown
+  const shouldShowModal = () => {
+    if (typeof window === "undefined") return false;
+
+    const closedAt = localStorage.getItem("formPopupClosedAt");
+    if (!closedAt) return true;
+
+    const now = new Date().getTime();
+    const timePassed = now - parseInt(closedAt);
+    const twentyFourHours = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
+    // If more than 24 hours have passed, clear the storage and show modal
+    if (timePassed > twentyFourHours) {
+      localStorage.removeItem("formPopupClosedAt");
+      return true;
+    }
+
+    return false;
+  };
+
+  // Auto-open timer (with 24-hour cooldown check)
   useEffect(() => {
+    if (!shouldShowModal()) {
+      return; // Don't show modal if within 24-hour cooldown
+    }
+
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, 5000);
@@ -93,6 +123,10 @@ const FormPopupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
     setLoading(false);
     if (res.success) {
       toast.success("Thank you for submitting!");
+      // Set a longer cooldown after successful submission (e.g., 7 days)
+      const now = new Date().getTime();
+      const sevenDaysLater = now + 7 * 24 * 60 * 60 * 1000;
+      localStorage.setItem("formPopupClosedAt", sevenDaysLater.toString());
       onClose();
     } else if (!res.success) {
       toast.error("Internal Server error. Please try again later.");

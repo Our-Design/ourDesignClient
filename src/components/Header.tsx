@@ -7,7 +7,7 @@ const Header = async () => {
   const isAuthorized = (await cookies()).get("accessToken")?.value;
 
   return (
-    <nav className="fixed z-1 w-full backdrop-blur supports-[backdrop-filter]:bg-secondary/40 flex py-4 justify-between items-center px-8">
+    <nav className="fixed z-30 w-full backdrop-blur supports-[backdrop-filter]:bg-secondary/40 flex py-4 justify-between items-center px-8">
       <Link
         // onClick={() => scrollToSection(0)}
         href="/"

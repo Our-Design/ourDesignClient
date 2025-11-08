@@ -162,7 +162,7 @@ const EnquireForm = () => {
             onChange={handleChange}
           />
           <InputField
-            label="Property Size"
+            label="Property Size (In sq.ft)"
             name="propertySize"
             value={formData.propertySize}
             onChange={handleChange}

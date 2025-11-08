@@ -217,7 +217,7 @@ const DesignGallery = () => {
           <button
             onClick={handleNext}
             disabled={isAnimating || allImages.length === 0}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-6 z-20 
+            className=" absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-6 z-20 
                      bg-white hover:bg-primary text-primary hover:text-white
                      shadow-2xl hover:shadow-primary/25 rounded-full w-12 h-12 lg:w-16 lg:h-16 
                      flex items-center justify-center text-xl lg:text-2xl

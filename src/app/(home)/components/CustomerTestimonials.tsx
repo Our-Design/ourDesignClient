@@ -3,30 +3,30 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Riya Malhotra",
+    name: "Rohit Malhotra",
     city: "Gurugram",
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/male4.avif",
     quote:
       "Absolutely loved the design and execution! The team handled everything smoothly and finished on time.",
   },
   {
     name: "Arjun Mehta",
     city: "Bengaluru",
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/male1.avif",
     quote:
       "Our 3BHK makeover turned out better than we imagined. Transparent pricing and great communication.",
   },
   {
-    name: "Sara Khan",
+    name: "Sanju K",
     city: "Mumbai",
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/male2.avif",
     quote:
       "The 3D designs made it easy to decide. The final space matches the renders perfectly!",
   },
   {
     name: "Vikram Iyer",
     city: "Noida",
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/male3.avif",
     quote:
       "Professional designers and hassle‑free execution. We love our new modular kitchen.",
   },
