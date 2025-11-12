@@ -207,13 +207,13 @@ const Reviews = () => {
               </p>
 
               <div className="flex items-center gap-4">
-                <Image
+                {/* <Image
                   src={currentReview.avatar}
                   alt={currentReview.name}
                   width={64}
                   height={64}
                   className="rounded-full object-cover border-2 border-primary/20"
-                />
+                /> */}
                 <div>
                   <h4 className="font-bold text-lg text-primary">
                     {currentReview.name}
