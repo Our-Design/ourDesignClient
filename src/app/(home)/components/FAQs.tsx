@@ -40,7 +40,7 @@ export default function FAQs() {
               key={idx}
               className="group px-5 py-4 border-b last:border-b-0"
             >
-              <summary className="flex cursor-pointer items-center justify-between text-heading font-medium border border-red-300">
+              <summary className="flex cursor-pointer items-center justify-between text-heading font-medium ">
                 <span>{item.q}</span>
                 <span
                   aria-hidden
