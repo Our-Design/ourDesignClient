@@ -75,7 +75,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row items-center gap-4 lg:text-lg text-base mt-4">
           <Link
             href="/enquire"
-            className="lg:py-4 py-3 lg:px-10 px-8 font-medium text-white rounded-lg bg-primary/90 backdrop-blur-sm cursor-pointer hover:bg-primary transition-all shadow-xl border border-white/20"
+            className="lg:py-4 py-3 lg:px-10 px-8 font-medium text-white bg-primary rounded-lg bg-primary/90 backdrop-blur-sm cursor-pointer hover:bg-primary transition-all shadow-xl border border-white/20  "
           >
             Get Free Consultation
           </Link>

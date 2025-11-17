@@ -89,12 +89,12 @@ export default function CustomerServices() {
             >
               Book a free consultation
             </Link>
-            <Link
-              href="/design-ideas"
+            {/* <Link
+              href="/design-ideas/balcony"
               className="inline-flex items-center justify-center px-5 py-3 rounded-lg border border-primary text-primary hover:bg-primary/5"
             >
               Browse design ideas
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
