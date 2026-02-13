@@ -12,6 +12,7 @@ interface Address {
 interface RequestBody {
   customerName: string;
   customerMobile: string;
+  customerEmail?: string;
   address: Address;
   budget: number;
   propertyType?: string;
@@ -21,6 +22,7 @@ interface RequestBody {
 
 interface FormDataType {
   name: string;
+  email: string;
   mobile: string;
   address1: string;
   address2?: string;
@@ -37,6 +39,7 @@ export const createLead = async ({ formData }: { formData: FormDataType }) => {
   try {
     const {
       name,
+      email,
       mobile,
       address1,
       address2,
@@ -67,6 +70,10 @@ export const createLead = async ({ formData }: { formData: FormDataType }) => {
       address,
       budget: Number(budget),
     };
+
+    if (email?.trim()) {
+      body.customerEmail = email;
+    }
 
     if (propertyType?.trim()) {
       body.propertyType = propertyType;

@@ -3,11 +3,15 @@
 interface RequestBody {
   customerName: string;
   customerMobile: string;
+  location?: string;
+  notes?: string;
 }
 
 interface FormDataType {
   name: string;
   mobile: string;
+  location?: string;
+  notes?: string;
 }
 
 export const createPartialLead = async ({
@@ -16,12 +20,15 @@ export const createPartialLead = async ({
   formData: FormDataType;
 }) => {
   try {
-    const { name, mobile } = formData;
+    const { name, mobile, location, notes } = formData;
 
     const body: RequestBody = {
       customerName: name,
       customerMobile: mobile,
     };
+
+    if (location?.trim()) body.location = location;
+    if (notes?.trim()) body.notes = notes;
 
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BACKEND_URI}/leads/partial`,

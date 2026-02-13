@@ -7,14 +7,18 @@ const Header = async () => {
   const isAuthorized = (await cookies()).get("accessToken")?.value;
 
   return (
-    <nav className="fixed z-30 w-full backdrop-blur supports-[backdrop-filter]:bg-secondary/40 flex py-4 justify-between items-center px-8">
+    <nav className="fixed z-30 w-full backdrop-blur-md supports-[backdrop-filter]:bg-secondary/60 flex py-3 justify-between items-center px-8 shadow-sm">
       <Link
-        // onClick={() => scrollToSection(0)}
         href="/"
-        className="font-bold flex items-end gap-2 text-3xl cursor-pointer"
+        className="font-bold flex items-center gap-2 cursor-pointer"
       >
-        <Image src="/ourDesignLogo.png" alt="logo" width={27} height={27} />
-        <span>OurDesign</span>
+        <Image
+          src="/logos/logo.png"
+          alt="OurDesign Logo"
+          width={44}
+          height={44}
+          className="object-contain"
+        />
       </Link>
 
       <NavLinksComponent isAuthorized={isAuthorized || ""} />

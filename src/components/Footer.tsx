@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   const quickLinks = [
@@ -30,7 +31,16 @@ const Footer = () => {
     <main className="text-gray-400 bg-primary px-8">
       <div className="flex lg:flex-row flex-col lg:justify-around gap-10 py-20">
         <div className="space-y-6">
-          <h3 className="text-3xl font-bold text-background">OurDesign</h3>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/logos/logo.png"
+              alt="OurDesign Logo"
+              width={50}
+              height={50}
+              className="object-contain brightness-0 invert"
+            />
+            <h3 className="text-3xl font-bold text-background">OurDesign</h3>
+          </div>
           <p className="text-xl">
             Connecting interior designers with quality leads to grow their
             business.
@@ -61,6 +71,20 @@ const Footer = () => {
                 <FaFacebook
                   size={20}
                   className="text-background group-hover:text-blue-200"
+                />
+              </div>
+            </a>
+            <a
+              href="https://www.youtube.com/@ourdesign-R"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+              aria-label="Subscribe on YouTube"
+            >
+              <div className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all duration-300 transform hover:scale-110 group-hover:shadow-lg">
+                <FaYoutube
+                  size={20}
+                  className="text-background group-hover:text-red-300"
                 />
               </div>
             </a>

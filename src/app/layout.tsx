@@ -20,6 +20,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Our Design",
   description: "Connect with Quality Leads.",
+  icons: {
+    icon: "/logos/logo.png",
+    apple: "/logos/logo.png",
+  },
 };
 
 const poppins = Poppins({
