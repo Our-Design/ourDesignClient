@@ -55,7 +55,7 @@ const EnquireForm = () => {
   }, [refreshCaptcha]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -106,7 +106,7 @@ const EnquireForm = () => {
       setErrors(validationErrors);
       const count = Object.keys(validationErrors).length;
       toast.error(
-        `Please fix ${count} ${count === 1 ? "error" : "errors"} in the form.`
+        `Please fix ${count} ${count === 1 ? "error" : "errors"} in the form.`,
       );
       return;
     }
@@ -156,11 +156,19 @@ const EnquireForm = () => {
             error={errors.mobile}
             required
           />
+          <InputField
+            label="City"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+            error={errors.city}
+            required
+          />
         </div>
       </div>
 
       {/* ADDRESS */}
-      <div>
+      {/* <div>
         <h2 className="lg:text-2xl text-xl font-semibold mb-4 border-b pb-2">
           Location
         </h2>
@@ -207,10 +215,10 @@ const EnquireForm = () => {
             required
           />
         </div>
-      </div>
+      </div> */}
 
       {/* PROPERTY DETAILS */}
-      <div>
+      {/* <div>
         <h2 className="lg:text-2xl text-xl font-semibold mb-4 border-b pb-2">
           Property Details
         </h2>
@@ -236,10 +244,10 @@ const EnquireForm = () => {
             required
           />
         </div>
-      </div>
+      </div> */}
 
       {/* ADDITIONAL INFO */}
-      <div>
+      {/* <div>
         <h2 className="lg:text-2xl text-xl font-semibold mb-4 border-b pb-2">
           Describe your Property & Requirements
         </h2>
@@ -252,7 +260,7 @@ const EnquireForm = () => {
             isTextarea
           />
         </div>
-      </div>
+      </div> */}
 
       {/* CAPTCHA */}
       <div>

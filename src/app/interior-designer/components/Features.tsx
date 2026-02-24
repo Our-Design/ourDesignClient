@@ -1,30 +1,12 @@
+"use client";
+
 import React from "react";
-import { TiMessages } from "react-icons/ti";
-import { SiTicktick } from "react-icons/si";
-import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { RxLightningBolt } from "react-icons/rx";
 import { FaRegClipboard, FaScaleBalanced } from "react-icons/fa6";
-import Link from "next/link";
+import { useFormPopup } from "@/components/FormPopup";
 
 const Features = () => {
-  const designerFeatures = [
-    {
-      icon: <TiMessages />,
-      title: "Exclusive Leads",
-      desc: "Get exclusive access to verified customer leads in your area",
-    },
-    {
-      icon: <SiTicktick />,
-      title: "Verified Contacts",
-      desc: "All leads come with verified contact information and project details",
-    },
-    {
-      icon: <HiOutlineCurrencyDollar />,
-      title: "Pre-qualified Budgets",
-      desc: "Only receive leads with confirmed project budgets matching your criteria",
-    },
-  ];
-
+  const { openForm } = useFormPopup();
   const customerFeatures = [
     {
       icon: <RxLightningBolt />,
@@ -54,7 +36,7 @@ const Features = () => {
       </p>
 
       {/* For Designers Section */}
-      <div className="w-full max-w-7xl mb-16">
+      {/* <div className="w-full max-w-7xl mb-16">
         <div className="flex items-center gap-3 mb-8">
           <span className="inline-flex items-center rounded-full border border-primary bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
             For Interior Designers
@@ -84,7 +66,7 @@ const Features = () => {
             Join as a Designer
           </Link>
         </div>
-      </div>
+      </div> */}
 
       {/* For Customers Section */}
       <div className="w-full max-w-7xl">
@@ -110,12 +92,12 @@ const Features = () => {
           ))}
         </div>
         <div className="mt-8 flex justify-center">
-          <Link
-            href="/enquire"
+          <button
+            onClick={openForm}
             className="bg-soft text-primary border-2 border-primary font-bold lg:text-lg text-base px-8 py-3 rounded-lg cursor-pointer shadow-lg hover:shadow-xl hover:scale-105 transition-all"
           >
             Start Your Project
-          </Link>
+          </button>
         </div>
       </div>
     </main>

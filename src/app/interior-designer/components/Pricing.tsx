@@ -12,9 +12,9 @@ const Pricing = () => {
         business, we make it easy to get started
       </p>
 
-      <div className="grid lg:grid-cols-2 gap-8 grid-cols-1 lg:my-20 my-10 w-full max-w-5xl">
+      <div className="grid grid-cols-1 lg:grid-cols-1 justify-items-center gap-8 lg:my-20 my-10 w-full max-w-5xl mx-auto">
         {/* For Designers */}
-        <Link
+        {/* <Link
           href="/dashboard"
           className="bg-white text-primary cursor-pointer hover:scale-102 hover:shadow-2xl rounded-xl p-8 flex flex-col items-center shadow-xl gap-6 transition-all border-2 border-primary/20"
         >
@@ -44,7 +44,7 @@ const Pricing = () => {
           <div className="mt-4 px-6 py-3 bg-primary text-white rounded-lg font-semibold">
             Browse Leads Now →
           </div>
-        </Link>
+        </Link> */}
 
         {/* For Customers */}
         <Link

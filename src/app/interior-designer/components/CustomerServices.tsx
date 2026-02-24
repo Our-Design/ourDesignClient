@@ -1,4 +1,4 @@
-import Link from "next/link";
+"use client";
 import {
   CalendarCheck2,
   BadgeCheck,
@@ -7,9 +7,12 @@ import {
   ShieldCheck,
   Home,
 } from "lucide-react";
+import FormPopupProvider, { useFormPopup } from "@/components/FormPopup";
 
 export default function CustomerServices() {
+    const { openForm } = useFormPopup();
   const features = [
+
     {
       title: "Free Design Consultation",
       desc: "Talk to an expert designer and explore styles, layouts, and budgets that fit you.",
@@ -41,6 +44,7 @@ export default function CustomerServices() {
       Icon: ShieldCheck,
     },
   ];
+  
 
   return (
     <section className="relative overflow-hidden text-accent">
@@ -83,12 +87,14 @@ export default function CustomerServices() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 mt-12">
-            <Link
-              href="/enquire"
-              className="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-primary text-white hover:opacity-90 shadow-default"
+            <FormPopupProvider>
+            <button
+              onClick={openForm}
+              className="inline-flex items-center cursor-pointer justify-center px-5 py-3 rounded-lg bg-primary text-white hover:opacity-90 shadow-default"
             >
               Book a free consultation
-            </Link>
+            </button>
+           </FormPopupProvider>
             {/* <Link
               href="/design-ideas/balcony"
               className="inline-flex items-center justify-center px-5 py-3 rounded-lg border border-primary text-primary hover:bg-primary/5"

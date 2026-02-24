@@ -74,13 +74,13 @@ const HeroSection = () => {
 
         <div className="flex flex-col sm:flex-row items-center gap-4 lg:text-lg text-base mt-4">
           <Link
-            href="/form"
+            href="/enquire"
             className="lg:py-4 py-3 lg:px-10 px-8 font-medium text-white bg-primary rounded-lg bg-primary/90 backdrop-blur-sm cursor-pointer hover:bg-primary transition-all shadow-xl border border-white/20  "
           >
             Get Free Consultation
           </Link>
           <Link
-            href="/enquire"
+            href="/form"
             className="lg:py-4 py-3 lg:px-10 px-8 font-medium rounded-lg bg-white/95 backdrop-blur-sm text-primary cursor-pointer hover:bg-white transition-all shadow-xl border border-primary/20"
           >
             For Designers - Join Now

@@ -1,13 +1,17 @@
-import Link from "next/link";
+'use client';
 import React from "react";
 import { IoMdCheckmark } from "react-icons/io";
+import { useFormPopup } from "@/components/FormPopup";
+
 
 const Schedule = () => {
+  const { openForm } = useFormPopup();
   const features = [
     "Pre-qualified Leads",
     "Verified Contacts",
     "Instant Access",
   ];
+  
 
   return (
     <main className="pb-24 lg:pt-24 px-8">
@@ -31,12 +35,12 @@ const Schedule = () => {
           ))}
         </div>
         <div className="flex flex-wrap justify-center gap-4 lg:text-xl text-base">
-          <Link
-            href="/dashboard"
-            className="bg-white shadow-lg hover:shadow-xl cursor-pointer text-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl"
+          <button
+            onClick={openForm}
+             className="bg-primary text-white shadow-lg hover:shadow-xl cursor-pointer font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl"
           >
             Get Started Now
-          </Link>
+          </button>
           {/* <Link
             href="/dashboard"
             className="text-white shadow-lg hover:shadow-xl cursor-pointer bg-primary font-bold lg:px-8 px-5 lg:py-4 py-2 rounded-xl"

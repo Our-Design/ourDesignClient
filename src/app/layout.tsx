@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Poppins } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "sonner";
+import FormPopupProvider from "@/components/FormPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,7 +43,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} antialiased min-h-screen flex flex-col`}
       >
         <Header />
-        <div className="pt-[71.97px] flex-grow">{children}</div>
+        <FormPopupProvider>
+          <div className="pt-[71.97px] flex-grow">{children}</div>
+        </FormPopupProvider>
         <Footer />
         <Toaster position="top-right" closeButton />
       </body>

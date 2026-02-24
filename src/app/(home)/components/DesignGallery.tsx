@@ -6,7 +6,7 @@ import { CloudinaryImage } from "@/types";
 import Image from "next/image";
 import { IoMdArrowBack, IoMdArrowForward } from "react-icons/io";
 import { HiOutlineSparkles } from "react-icons/hi2";
-import { useFormPopup } from "./FormPopup";
+import { useFormPopup } from "@/components/FormPopup";
 
 const DesignGallery = () => {
   const [allImages, setAllImages] = useState<CloudinaryImage[]>([]);

@@ -4,7 +4,7 @@ import SpinnerLocal from "@/components/SpinnerLocal";
 import Image from "next/image";
 import React, { useEffect, useState, createContext, useContext } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { FiUser, FiPhone } from "react-icons/fi";
+import { FiUser, FiPhone, FiMapPin, FiFileText } from "react-icons/fi";
 import { toast } from "sonner";
 
 // Create context for form popup control
@@ -15,7 +15,7 @@ interface FormPopupContextType {
 }
 
 const FormPopupContext = createContext<FormPopupContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export const useFormPopup = () => {
@@ -26,8 +26,16 @@ export const useFormPopup = () => {
   return context;
 };
 
-export const FormPopupProvider: React.FC<{ children: React.ReactNode }> = ({
+interface FormPopupProviderProps {
+  children: React.ReactNode;
+  autoOpen?: boolean;
+  autoOpenDelay?: number;
+}
+
+export const FormPopupProvider: React.FC<FormPopupProviderProps> = ({
   children,
+  autoOpen = true,
+  autoOpenDelay = 5000,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -35,12 +43,10 @@ export const FormPopupProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const closeForm = () => {
     setIsOpen(false);
-    // Store the timestamp when user closes the modal
     const now = new Date().getTime();
     localStorage.setItem("formPopupClosedAt", now.toString());
   };
 
-  // Check if modal should be shown based on 24-hour cooldown
   const shouldShowModal = () => {
     if (typeof window === "undefined") return false;
 
@@ -49,9 +55,8 @@ export const FormPopupProvider: React.FC<{ children: React.ReactNode }> = ({
 
     const now = new Date().getTime();
     const timePassed = now - parseInt(closedAt);
-    const twentyFourHours = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+    const twentyFourHours = 24 * 60 * 60 * 1000;
 
-    // If more than 24 hours have passed, clear the storage and show modal
     if (timePassed > twentyFourHours) {
       localStorage.removeItem("formPopupClosedAt");
       return true;
@@ -60,18 +65,15 @@ export const FormPopupProvider: React.FC<{ children: React.ReactNode }> = ({
     return false;
   };
 
-  // Auto-open timer (with 24-hour cooldown check)
   useEffect(() => {
-    if (!shouldShowModal()) {
-      return; // Don't show modal if within 24-hour cooldown
-    }
+    if (!autoOpen || !shouldShowModal()) return;
 
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, 5000);
+    }, autoOpenDelay);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [autoOpen, autoOpenDelay]);
 
   return (
     <FormPopupContext.Provider value={{ openForm, closeForm, isOpen }}>
@@ -88,6 +90,8 @@ const FormPopupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
+    location: "",
+    notes: "",
   });
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -103,11 +107,11 @@ const FormPopupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: "" })); // clear error on change
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -118,13 +122,11 @@ const FormPopupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
       return;
     }
 
-    // Do your submission logic here
     setLoading(true);
     const res = await createPartialLead({ formData });
     setLoading(false);
     if (res.success) {
       toast.success("Thank you for submitting!");
-      // Set a longer cooldown after successful submission (e.g., 7 days)
       const now = new Date().getTime();
       const sevenDaysLater = now + 7 * 24 * 60 * 60 * 1000;
       localStorage.setItem("formPopupClosedAt", sevenDaysLater.toString());
@@ -147,9 +149,6 @@ const FormPopupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
           isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
         }`}
       >
-        {/* Top accent bar */}
-        <div className="h-1.5 bg-primary w-full" />
-
         {/* Close button */}
         <button
           type="button"
@@ -220,6 +219,40 @@ const FormPopupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
                 <span className="text-red-500 text-xs">{errors.mobile}</span>
               )}
             </div>
+
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-medium text-gray-700">
+                Location
+              </label>
+              <div className="relative">
+                <FiMapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-lg" />
+                <input
+                  type="text"
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                  placeholder="e.g. Mumbai, Delhi, Bangalore"
+                  className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary/20 transition-all text-gray-800"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-medium text-gray-700">
+                Notes
+              </label>
+              <div className="relative">
+                <FiFileText className="absolute left-3.5 top-3 text-gray-400 text-lg" />
+                <textarea
+                  name="notes"
+                  value={formData.notes}
+                  onChange={handleChange}
+                  placeholder="Any specific requirements..."
+                  rows={2}
+                  className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-primary focus:bg-white focus:ring-1 focus:ring-primary/20 transition-all text-gray-800 resize-none"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Submit Button */}
@@ -239,7 +272,4 @@ const FormPopupModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   );
 };
 
-// Legacy default export for backward compatibility
-const FormPopup = FormPopupProvider;
-
-export default FormPopup;
+export default FormPopupProvider;
