@@ -1,6 +1,6 @@
 "use client";
 
-import { createPartialLead } from "@/actions/createPartialLead";
+import { createLead } from "@/actions/createLead";
 import InputField from "@/components/InputField";
 import SpinnerLocal from "@/components/SpinnerLocal";
 import { useRouter } from "next/navigation";
@@ -98,12 +98,16 @@ const EnquireForm = () => {
     }
 
     setLoading(true);
-    const res = await createPartialLead({
+    const res = await createLead({
       formData: {
         name: formData.name,
+        email: formData.email,
         mobile: formData.mobile,
-        location: formData.city,
-        notes: formData.email ? `Email: ${formData.email}` : undefined,
+        address1: "-",
+        city: formData.city,
+        state: "-",
+        pincode: "000000",
+        budget: "0",
       },
     });
     setLoading(false);
