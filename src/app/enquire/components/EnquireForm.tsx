@@ -1,6 +1,6 @@
 "use client";
 
-import { createLead } from "@/actions/createLead";
+import { createPartialLead } from "@/actions/createPartialLead";
 import InputField from "@/components/InputField";
 import SpinnerLocal from "@/components/SpinnerLocal";
 import { useRouter } from "next/navigation";
@@ -24,15 +24,7 @@ const EnquireForm = () => {
     name: "",
     email: "",
     mobile: "",
-    address1: "",
-    address2: "",
     city: "",
-    state: "",
-    pincode: "",
-    propertyType: "",
-    propertySize: "",
-    budget: "",
-    description: "",
   });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -73,13 +65,7 @@ const EnquireForm = () => {
       newErrors.email = "Please enter a valid email address.";
     if (!formData.mobile.trim() || !/^\d{10}$/.test(formData.mobile))
       newErrors.mobile = "Please enter a valid 10-digit mobile number.";
-    if (!formData.address1.trim())
-      newErrors.address1 = "House/Flat No. is required.";
     if (!formData.city.trim()) newErrors.city = "City is required.";
-    if (!formData.state.trim()) newErrors.state = "State is required.";
-    if (!formData.pincode.trim() || !/^\d{6}$/.test(formData.pincode))
-      newErrors.pincode = "Please enter a valid 6-digit pincode.";
-    if (!formData.budget.trim()) newErrors.budget = "Budget is required.";
 
     return newErrors;
   };
@@ -112,7 +98,14 @@ const EnquireForm = () => {
     }
 
     setLoading(true);
-    const res = await createLead({ formData });
+    const res = await createPartialLead({
+      formData: {
+        name: formData.name,
+        mobile: formData.mobile,
+        location: formData.city,
+        notes: formData.email ? `Email: ${formData.email}` : undefined,
+      },
+    });
     setLoading(false);
     if (res.success) {
       toast.success(res.message || "Thanks! Your enquiry has been submitted.");
